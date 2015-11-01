@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
   get 'welcome/index'
-
 	root 'welcome#index'
 
 	get '/auth/:provider/callback', :to => 'sessions#callback'
 	post '/auth/:provider/callback', :to => 'sessions#callback'
+	get '/auth/github', :as => :login
 	get '/logout' => 'sessions#destroy', :as => :logout
 
   resources :organizations
   resources :events
   resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
