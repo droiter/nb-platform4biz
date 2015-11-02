@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 	get '/auth/:provider/callback', :to => 'sessions#callback'
 	post '/auth/:provider/callback', :to => 'sessions#callback'
 	get '/auth/github', :as => :login
+	get '/auth/quickbooks', :as => :login_qb
 	get '/logout' => 'sessions#destroy', :as => :logout
 
 	resources :assignments

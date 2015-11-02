@@ -8,7 +8,7 @@
 			<th>NAME</th>
 			<th>DESCRIPTION</th>
 			<th>STATUS</th>
-			<th>ACTION</th>
+			<th width="150">ACTION</th>
     </tr>
   </thead>
 
@@ -18,9 +18,9 @@
 				<td><%= role.name %></td>
 				<td><%= role.description %></td>
 				<td><%= role.status %></td>
-        <td><%= link_to 'Show', role, class: "btn btn-primary" %><br><br>
-        <%= link_to 'Edit', edit_role_path(role), class: "btn btn-primary" %><br><br>
-        <%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Show', role, class: "btn btn-primary btn-block" %>
+        <%= link_to 'Edit', edit_role_path(role), class: "btn btn-primary btn-block" %>
+        <%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-block" %></td>
       </tr>
     <% end %>
   </tbody>

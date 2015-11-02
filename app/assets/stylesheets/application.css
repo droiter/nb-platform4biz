@@ -19,10 +19,6 @@ div#content {
 	padding: 70px 20px 20px 80px;
 }
 
-a.btn {
-	width: 100px;
-}
-
 a.btn:link {
 	color: white;
 }

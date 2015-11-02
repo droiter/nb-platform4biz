@@ -8,7 +8,7 @@
 			<th>ORGANIATION NAME</th>
 			<th>DESCRIPTION</th>
 			<th>STATUS</th>
-			<th>ACTION</th>
+			<th width="150">ACTION</th>
     </tr>
   </thead>
 
@@ -18,9 +18,9 @@
 				<td><%= organization.name %></td>
 				<td><%= organization.description %></td>
 				<td></td>
-        <td><%= link_to 'Show', organization, class: 'btn btn-primary' %>
-        <%= link_to 'Edit', edit_organization_path(organization), class: 'btn btn-primary' %>
-        <%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></td>
+        <td><%= link_to 'Show', organization, class: 'btn btn-primary btn-block' %>
+        <%= link_to 'Edit', edit_organization_path(organization), class: 'btn btn-primary btn-block' %>
+        <%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-block' %></td>
       </tr>
     <% end %>
   </tbody>

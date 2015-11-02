@@ -12,7 +12,7 @@
       <th>START DATE</th>
       <th>END DATE</th>
       <th>STATUS</th>
-			<th>ACTION</th>
+			<th width="150">ACTION</th>
     </tr>
   </thead>
 
@@ -26,9 +26,9 @@
         <td><%= assignment.start_date %></td>
         <td><%= assignment.end_date %></td>
         <td><%= assignment.status %></td>
-        <td><%= link_to 'Show', assignment, class: "btn btn-primary" %><br><br>
-        <%= link_to 'Edit', edit_assignment_path(assignment), class: "btn btn-primary" %><br><br>
-        <%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Show', assignment, class: "btn btn-primary btn-block" %>
+        <%= link_to 'Edit', edit_assignment_path(assignment), class: "btn btn-primary btn-block" %>
+        <%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-block" %></td>
       </tr>
     <% end %>
   </tbody>

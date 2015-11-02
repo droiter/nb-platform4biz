@@ -27,6 +27,7 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'omniauth-quickbooks'
 gem 'less-rails'
 gem 'lazy_high_charts'
 

@@ -9,7 +9,7 @@
 			<th>SCREEN NAME</th>
 			<th>USER NAME</th>
 			<th>STATUS</th>
-			<th>ACTION</th>
+			<th width="150">ACTION</th>
     </tr>
   </thead>
 
@@ -20,9 +20,9 @@
 				<td><%= user.screen_name %></td>
 				<td><%= user.name %></td>
 				<td><%= user.status %></td>
-        <td><%= link_to 'Show', user, class: 'btn btn-primary' %><br><br>
-        <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-primary' %><br><br>
-        <%= link_to 'Destroy', user, class: 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user, class: 'btn btn-primary btn-block' %>
+        <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-primary btn-block' %>
+        <%= link_to 'Destroy', user, class: 'btn btn-primary btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
