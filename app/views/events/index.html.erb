@@ -1,20 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Events</h1>
+<h2><i class="glyphicon glyphicon-blackboard"> Events List</i></h2>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th colspan="3"></th>
+			<th>NAME</th>
+			<th>DESCRIPTION</th>
+			<th>LOCATION</th>
+			<th>START TIME</th>
+			<th>END TIME</th>
+			<th>STATUS</th>
+			<th>CREATED BY</th>
+			<th>ACTION</th>
     </tr>
   </thead>
 
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td><%= event.name %></td>
+				<td><%= event.description %></td>
+				<td><%= event.location %></td>
+				<td><%= event.start_time %></td>
+				<td><%= event.end_time %></td>
+				<td><%= event.status %></td>
+				<td><%= event.user.name %></td>
+        <td><%= link_to 'Show', event, class: "btn btn-primary" %><br><br>
+        <%= link_to 'Edit', edit_event_path(event), class: "btn btn-primary" %><br><br>
+        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>

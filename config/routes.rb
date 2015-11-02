@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :roles
   get 'members/index', :as => :members
   get 'dashboard/index', :as => :dashboard
   get 'home/index'
@@ -10,9 +9,15 @@ Rails.application.routes.draw do
 	get '/auth/github', :as => :login
 	get '/logout' => 'sessions#destroy', :as => :logout
 
+	resources :assignments
+  resources :roles
   resources :organizations
   resources :events
-  resources :users
+  resources :users do
+		resources :organizations
+		resources :roles
+		resources :events
+	end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

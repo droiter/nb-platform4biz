@@ -11,26 +11,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102023321) do
+ActiveRecord::Schema.define(version: 20151102034234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "events", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "assignments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.integer  "organization_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "status"
+    t.string   "description"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
+
+  add_index "assignments", ["organization_id"], name: "index_assignments_on_organization_id", using: :btree
+  add_index "assignments", ["role_id"], name: "index_assignments_on_role_id", using: :btree
+  add_index "assignments", ["user_id"], name: "index_assignments_on_user_id", using: :btree
+
+  create_table "events", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "name"
+    t.string   "description"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "location"
+    t.integer  "status"
+    t.integer  "user_id"
+  end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "organizations", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "name"
     t.string   "description"
+    t.integer  "status"
   end
 
   create_table "roles", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "status"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,6 +67,7 @@ ActiveRecord::Schema.define(version: 20151102023321) do
     t.string   "uid"
     t.string   "screen_name"
     t.string   "name"
+    t.integer  "status"
   end
 
 end

@@ -1,31 +1,47 @@
+<h2><i class="glyphicon glyphicon-info-sign"> Show User</i></h2>
+
 <p id="notice"><%= notice %></p>
 
-  <table class="table table-hover">
-    <tr>
-      <th>KEY</th>
-      <th>VALUE</th>
-    </tr>
+<table class="table table-hover">
+	<caption>User Information</caption>
+  <tr>
+    <th>KEY</th>
+    <th>VALUE</th>
+  </tr>
 
-    <tr>
-      <td>Provider</td>
-      <td><%= @user.provider %></td>
-    </tr>
+  <tr>
+    <td>Provider</td>
+    <td><%= @user.provider %></td>
+  </tr>
 
-    <tr>
-      <td>User ID</td>
-      <td><%= @user.uid %></td>
-    </tr>
+  <tr>
+    <td>User ID</td>
+    <td><%= @user.uid %></td>
+  </tr>
 
-    <tr>
-      <td>Screen Name</td>
-      <td><%= @user.screen_name %></td>
-    </tr>
+  <tr>
+    <td>Screen Name</td>
+    <td><%= @user.screen_name %></td>
+  </tr>
 
-    <tr>
-      <td>Name</td>
-      <td><%= @user.name %></td>
-    </tr>
-  </table>
+  <tr>
+    <td>Name</td>
+    <td><%= @user.name %></td>
+  </tr>
+</table>
+
+<table class="table table-hover">
+	<caption>Hosting Events</caption>
+	<tr>
+		<th>KEY</th>
+		<th>VALUE</th>
+	</tr>
+
+	<tr>
+		<td>Event Name</td>
+		<td></td>
+	</tr>
+</table>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

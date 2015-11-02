@@ -8,7 +8,6 @@
 			<th>MEMBER ID</th>
 			<th>SCREEN NAME</th>
 			<th>USER NAME</th>
-			<th>ROLE</th>
 			<th>STATUS</th>
 			<th>ACTION</th>
     </tr>
@@ -20,10 +19,9 @@
 				<td><%= user.uid %></td>
 				<td><%= user.screen_name %></td>
 				<td><%= user.name %></td>
-				<td></td>
-				<td></td>
-        <td><%= link_to 'Show', user, class: 'btn btn-primary' %>
-        <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-primary' %>
+				<td><%= user.status %></td>
+        <td><%= link_to 'Show', user, class: 'btn btn-primary' %><br><br>
+        <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-primary' %><br><br>
         <%= link_to 'Destroy', user, class: 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
