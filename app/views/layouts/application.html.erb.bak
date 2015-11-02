@@ -52,7 +52,9 @@
 							<% end %>
 
             <% else %>
-						<%= link_to image_tag("C2QB_white_btn_lg_default.png", {:onmouseover => "this.src='#{asset_path('C2QB_white_btn_lg_hover.png')}'", :onmouseout => "this.src='#{asset_path('C2QB_white_btn_lg_default.png')}'", :border => '0', :size => "200x35"}), login_qb_path %>
+						<%= link_to image_tag ('/images/C2QB_green_btn_med_default.png'), login_qb_path do %>
+						<% end %>
+
             <% end %>
           </form>
         </div><!--/.navbar-collapse -->

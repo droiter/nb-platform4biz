@@ -4,7 +4,8 @@
 
 <%= high_chart("id", @chart) %>
 
-<table class="table">
+<table class="table table-hover">
+	<caption>Overall Information</caption>
   <thead>
     <tr>
 			<th>ORGANIATION NAME</th>
@@ -21,6 +22,115 @@
 				<td><%= organization.description %></td>
 				<td></td>
         <td><%= link_to 'Show', organization, class: 'btn btn-primary' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="table table-hover">
+	<caption>Liquidity Ratio</caption>
+	<thead>
+		<tr>
+			<th>ORGANIZATION NAME</th>
+			<th>CURRENT RATIO</th>
+			<th>QUICK RATIO</th>
+			<th>CASH RATIO</th>
+			<th>CASH CONVERSION CYCLE</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @organizations.each do |organization| %>
+			<tr>
+				<td><%= organization.name %></td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>1.0</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<table class="table table-hover">
+	<caption>solvency Ratios</caption>
+	<thead>
+		<tr>
+			<th>ORGANIZATION NAME</th>
+			<th>DEBT RATIO</th>
+			<th>DEBT TO EQUITY RATIO</th>
+			<th>DEBT TO CAPITAL RATIO</th>
+			<th>TIMES INTEREST EARNED RATIO</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @organizations.each do |organization| %>
+      <tr>
+        <td><%= organization.name %></td>
+        <td>1.0</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>1.0</td>
+      </tr>
+    <% end %>
+	</tbody>
+</table>
+
+
+<table class="table table-hover">
+  <caption>Profitability Ratios</caption>
+  <thead>
+    <tr>
+      <th>ORGANIZATION NAME</th>
+      <th>NET PROFIT MARGIN</th>
+			<th>GROSS PROFIT MARGIN</th>
+			<th>OPERATING PROFIT MARGIN</th>
+			<th>RETURN ON ASSETS</th>
+			<th>RETURN ON CAPITAL EMPLOYED</th>
+			<th>RETURN ON EQUITY</th>
+			<th>EARNINGS PER SHARE</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @organizations.each do |organization| %>
+      <tr>
+        <td><%= organization.name %></td>
+        <td>1.0</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>1.0</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="table table-hover">
+  <caption>Activity Ratios</caption>
+  <thead>
+    <tr>
+      <th>ORGANIZATION NAME</th>
+      <th>INVENTORY TURNOVER RATIO</th>
+			<th>RECEIVABLES TURN OVER RATIO</th>
+			<th>PAYABLES TURNOVER RATIO</th>
+			<th>FIXED ASSET TURNOVER RATIO</th>
+			<th>WORKING CAPITAL TURNOVER RATIO</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @organizations.each do |organization| %>
+      <tr>
+        <td><%= organization.name %></td>
+        <td>1.0</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>1.0</td>
       </tr>
     <% end %>
   </tbody>
