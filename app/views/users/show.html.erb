@@ -31,16 +31,51 @@
 </table>
 
 <table class="table table-hover">
-	<caption>Hosting Events</caption>
+	<caption>Assignments</caption>
 	<tr>
-		<th>KEY</th>
-		<th>VALUE</th>
+		<th>ROLE</th>
+		<th>ORGANIZATION</th>
+		<th>START DATE</th>
+		<th>END DATE</th>
+		<th>STATUS</th>
 	</tr>
 
+	<% @assignments.each do |assignment| %>
+
 	<tr>
-		<td>Event Name</td>
-		<td></td>
+		<td><%= assignment.role.name %></td>
+		<td><%= assignment.organization.name %></td>
+		<td><%= assignment.start_date %></td>
+		<td><%= assignment.end_date %></td>
+		<td><%= assignment.status %></td>
 	</tr>
+
+	<% end %>
+</table>
+
+<table class="table table-hover">
+	<caption>Hosting Events</caption>
+	<tr>
+		<th>EVENT NAME</th>
+		<th>DESCRIPTION</th>
+		<th>LOCATION</th>
+		<th>START TIME</th>
+		<th>END TIME</th>
+		<th>STATUS</th>
+		<th>HOSTED BY</th>
+	</tr>
+
+	<% @events.each do |event| %>
+	<tr>
+		<td><%= event.name %></td>
+		<td><%= event.description %></td>
+		<td><%= event.location %></td>
+		<td><%= event.start_time %></td>
+		<td><%= event.end_time %></td>
+		<td><%= event.status %></td>
+		<td><%= event.user.name %></td>
+	</tr>
+	<% end %>
 </table>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

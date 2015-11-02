@@ -66,6 +66,10 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
 
+			if @user.assignments
+				@assignments = @user.assignments
+			end
+
 			if @user.events
 				@events = @user.events
 			end

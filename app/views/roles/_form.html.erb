@@ -11,6 +11,28 @@
     </div>
   <% end %>
 
+	<table class="table table-hover">
+		<tr>
+			<th>KEY</th>
+			<th>VALUE</th>
+		</tr>
+
+		<tr>
+			<td>Name</td>
+			<td><%= f.text_field :name %></td>
+		</tr>
+
+		<tr>
+			<td>Description</td>
+			<td><%= f.text_area :description %></td>
+		</tr>
+
+		<tr>
+			<td>Status</td>
+			<td><%= f.number_field :status %></td>
+		</tr>
+	</table>
+
   <div class="actions">
     <%= f.submit %>
   </div>

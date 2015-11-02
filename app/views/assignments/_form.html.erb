@@ -11,34 +11,49 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :role_id %><br>
-    <%= f.number_field :role_id %>
-  </div>
-  <div class="field">
-    <%= f.label :organization_id %><br>
-    <%= f.number_field :organization_id %>
-  </div>
-  <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.date_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br>
-    <%= f.date_select :end_date %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.number_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
+	<table class="table table-hover">
+
+		<tr>
+			<th>KEY</th>
+			<th>VALUE</th>
+		</tr>
+
+		<tr>
+			<td>User ID</td>
+			<td><%= f.number_field :user_id %></td>
+		</tr>
+
+		<tr>
+			<td>Role ID</td>
+	    <td><%= f.number_field :role_id %></td>
+		</tr>
+
+		<tr>
+			<td>Organization ID</td>
+    	<td><%= f.number_field :organization_id %></td>
+		</tr>
+
+		<tr>
+			<td>Start Date</td>
+    	<td><%= f.date_select :start_date %></td>
+		</tr>
+
+		<tr>
+			<td>End Date</td>
+    	<td><%= f.date_select :end_date %></td>
+		</tr>
+
+		<tr>
+			<td>Status</td>
+			<td><%= f.number_field :status %></td>
+		</tr>
+
+		<tr>
+			<td>Description</td>
+    	<td><%= f.text_field :description %></td>
+		</tr>
+	</table>
+
   <div class="actions">
     <%= f.submit %>
   </div>

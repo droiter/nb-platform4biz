@@ -1,20 +1,26 @@
+<h2><i class="glyphicon glyphicon-tasks"> Role List</i></h2>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Roles</h1>
-
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th colspan="3"></th>
+			<th>NAME</th>
+			<th>DESCRIPTION</th>
+			<th>STATUS</th>
+			<th>ACTION</th>
     </tr>
   </thead>
 
   <tbody>
     <% @roles.each do |role| %>
       <tr>
-        <td><%= link_to 'Show', role %></td>
-        <td><%= link_to 'Edit', edit_role_path(role) %></td>
-        <td><%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td><%= role.name %></td>
+				<td><%= role.description %></td>
+				<td><%= role.status %></td>
+        <td><%= link_to 'Show', role, class: "btn btn-primary" %><br><br>
+        <%= link_to 'Edit', edit_role_path(role), class: "btn btn-primary" %><br><br>
+        <%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>
