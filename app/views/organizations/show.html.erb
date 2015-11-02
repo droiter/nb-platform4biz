@@ -18,6 +18,21 @@
       <td>Description</td>
       <td><%= @organization.description %></td>
     </tr>
+
+		<tr>
+			<td>Industry</td>
+			<td><%= @organization.industry %></td>
+		</tr>
+
+		<tr>
+			<td>Number of Employee</td>
+			<td><%= @organization.employee_num %></td>
+		</tr>
+
+		<tr>
+			<td>Status</td>
+			<td><%= @organization.status %></td>
+		</tr>	
   </table>
 
 <%= link_to 'Edit', edit_organization_path(@organization) %> |
