@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'members/index'
-
+  resources :roles
+  get 'members/index', :as => :members
   get 'dashboard/index', :as => :dashboard
   get 'home/index'
 	root 'home#index'

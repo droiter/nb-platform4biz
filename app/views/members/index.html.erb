@@ -22,15 +22,8 @@
 				<td><%= user.name %></td>
 				<td></td>
 				<td></td>
-        <td><%= link_to 'Show', user, class: 'btn btn-primary' %>
-        <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-primary' %>
-        <%= link_to 'Destroy', user, class: 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user, class: 'btn btn-primary' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
-

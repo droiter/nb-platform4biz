@@ -11,6 +11,33 @@
     </div>
   <% end %>
 
+	<table class="table table-hover">
+		<tr>
+			<th>KEY</th>
+			<th>VALUE</th>
+		</tr>
+
+		<tr>
+			<td>Provider</td>
+			<td><%= @user.provider %></td>
+		</tr>
+
+		<tr>
+			<td>User ID</td>
+			<td><%= @user.uid %></td>
+		</tr>
+
+		<tr>
+			<td>Screen Name</td>
+			<td><%= @user.screen_name %></td>
+		</tr>
+
+		<tr>
+			<td>Name</td>
+			<td><%= @user.name %></td>
+		</tr>
+	</table>
+
   <div class="actions">
     <%= f.submit %>
   </div>
