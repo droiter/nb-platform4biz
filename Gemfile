@@ -30,6 +30,7 @@ gem 'omniauth-github'
 gem 'omniauth-quickbooks'
 gem 'less-rails'
 gem 'lazy_high_charts'
+gem 'rest-client'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

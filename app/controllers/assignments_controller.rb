@@ -1,5 +1,6 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
+	before_action :set_form, only: [:new, :edit]
 
   # GET /assignments
   # GET /assignments.json
@@ -66,6 +67,27 @@ class AssignmentsController < ApplicationController
     def set_assignment
       @assignment = Assignment.find(params[:id])
     end
+
+
+		def set_form
+
+			@user_list = []
+			@role_list = []
+			@organization_list = []
+
+			User.all.each do |user|
+      	@user_list.push([user.name, user.id])
+    	end
+
+    	Role.all.each do |role|
+      	@role_list.push([role.name, role.id])
+    	end
+
+			Organization.all.each do |organization|
+				@organization_list.push([organization.name, organization.id])
+			end
+
+		end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assignment_params

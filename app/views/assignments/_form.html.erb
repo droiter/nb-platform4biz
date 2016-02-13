@@ -20,17 +20,17 @@
 
 		<tr>
 			<td>User ID</td>
-			<td><%= f.number_field :user_id %></td>
+			<td><%= f.select(:user_id, @user_list) %></td>
 		</tr>
 
 		<tr>
 			<td>Role ID</td>
-	    <td><%= f.number_field :role_id %></td>
+			<td><%= f.select(:role_id, @role_list) %></td>
 		</tr>
 
 		<tr>
 			<td>Organization ID</td>
-    	<td><%= f.number_field :organization_id %></td>
+			<td><%= f.select(:organization_id, @organization_list) %></td>
 		</tr>
 
 		<tr>
