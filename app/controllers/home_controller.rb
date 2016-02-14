@@ -1,29 +1,27 @@
 class HomeController < ApplicationController
   def index
 
-		require 'open-uri'
-		require 'json'
-
-#		res = open('https://sandbox-quickbooks.api.intuit.com/v3/company/1440855105/reports/BalanceSheet?=Sample%20request%20body%20unavailable&minorversion=4')
-
+=begin
 		begin
+
 			res = open('https://sandbox-quickbooks.api.intuit.com/v3/company/1440855105/reports/ProfitAndLoss?minorversion=4',
 				'Accept'	=> 'application/json',
 				'Host'	=> 'sandbox-quickbooks.api.intuit.com',
-				'Authorization'	=> 'OAuth',
-				'oauth_token'	=> "qyprduJm3JaSkv8snemPi7QpYd7BUNbmyXcdyzHEalOyKY3j",
-				'oauth_nonce'	=> "efc64282-8cd6-4760-afba-dff0de83caed",
-				'oauth_consumer_key'	=> "qyprdE7ZtFZBzQcOkjsW8k6cDU1leA",
-				'oauth_signature_method'	=> "HMAC-SHA1",
-				'oauth_timestamp'	=> "1455474615",
-				'oauth_version'	=> "1.0",
-				'oauth_signature'	=> "cQrGlD6gDe8jsp8RZE7cwXCznJI%3D"
-			)
+				'Authorization'	=> 'OAuth oauth_token="qyprdv2szDj7wEOYlsko7n6Q7UxEgnrRyNqq8t8l9yP7oUcB",oauth_nonce="44b4226f-db90-4d9a-b0b5-4aedd1841b9a",oauth_consumer_key="qyprdE7ZtFZBzQcOkjsW8k6cDU1leA",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1455486018",oauth_version="1.0",oauth_signature="Mlm%2F9Aveie0BIet3rcLDKPY3uMY%3D"')
+
+			@code, @message = res.status
+
+			if @code == '200'
+
+				@result = ActiveSupport::JSON.decode res.read
+			end
 
 		rescue => error
 			response = error.io
+			@code = response.status
 			logger.debug("Error #{response.status}")
 		end
+=end
 
 		category_list = []
 		revenue_list	= []

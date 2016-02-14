@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 	require 'open-uri'
 	require 'json'
+	require 'date'
+#	require 'net/http'
+#	require 'uri'
 
 	helper_method :current_user
 
