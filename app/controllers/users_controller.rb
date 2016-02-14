@@ -78,11 +78,12 @@ class UsersController < ApplicationController
 
 		def set_form
 			@statuses = Status.all
+			@user_types = UserType.all
 		end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
 #      params[:user]
-			params.require(:user).permit(:status_id)
+			params.require(:user).permit(:name, :user_type_id, :status_id)
     end
 end

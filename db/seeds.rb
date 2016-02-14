@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Status.destroy_all
+Status.create(:id => 0, :name => 'INACTIVE')
+Status.create(:id => 1, :name => 'ACTIVE')
+
+UserType.destroy_all
+UserType.create(:id => 0, :name => 'Super User')
+UserType.create(:id => 1, :name => 'Regular User')

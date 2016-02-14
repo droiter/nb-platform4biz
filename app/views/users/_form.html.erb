@@ -34,7 +34,12 @@
 
 		<tr>
 			<td>Name</td>
-			<td><%= @user.name %></td>
+			<td><%= f.text_field :name %></td>
+		</tr>
+
+		<tr>
+			<td>User Type</td>
+			<td><%= f.select(:user_type_id, @user_types.map{|t|[t.name,t.id]}) %>
 		</tr>
 
 		<tr>

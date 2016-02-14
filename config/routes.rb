@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_types
   resources :statuses
   get 'members/index', :as => :members
   get 'dashboard/index', :as => :dashboard
