@@ -39,7 +39,7 @@
 
 		<tr>
 			<td>Status</td>
-			<td><%= f.number_field :status %></td>
+			<td><%= f.select(:status_id, @statuses.map{|t|[t.name,t.id]}) %>
 		</tr>
 	</table>
 

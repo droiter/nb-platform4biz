@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102215039) do
+ActiveRecord::Schema.define(version: 20160214005450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 20151102215039) do
     t.integer  "organization_id"
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "status"
     t.string   "description"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "status_id"
   end
 
   add_index "assignments", ["organization_id"], name: "index_assignments_on_organization_id", using: :btree
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20151102215039) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.string   "location"
-    t.integer  "status"
     t.integer  "user_id"
+    t.integer  "status_id"
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
@@ -51,17 +51,23 @@ ActiveRecord::Schema.define(version: 20151102215039) do
     t.datetime "updated_at",   null: false
     t.string   "name"
     t.string   "description"
-    t.integer  "status"
     t.string   "industry"
     t.integer  "employee_num"
+    t.integer  "status_id"
   end
 
   create_table "roles", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "status"
     t.string   "name"
     t.string   "description"
+    t.integer  "status_id"
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,7 +77,7 @@ ActiveRecord::Schema.define(version: 20151102215039) do
     t.string   "uid"
     t.string   "screen_name"
     t.string   "name"
-    t.integer  "status"
+    t.integer  "status_id"
   end
 
 end

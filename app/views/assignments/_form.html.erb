@@ -20,17 +20,17 @@
 
 		<tr>
 			<td>User ID</td>
-			<td><%= f.select(:user_id, @user_list) %></td>
+			<td><%= f.select(:user_id, @users.map{|t|[t.name, t.id]}) %></td>
 		</tr>
 
 		<tr>
 			<td>Role ID</td>
-			<td><%= f.select(:role_id, @role_list) %></td>
+			<td><%= f.select(:role_id, @roles.map{|t|[t.name, t.id]}) %></td>
 		</tr>
 
 		<tr>
 			<td>Organization ID</td>
-			<td><%= f.select(:organization_id, @organization_list) %></td>
+			<td><%= f.select(:organization_id, @organizations.map{|t|[t.name, t.id]}) %></td>
 		</tr>
 
 		<tr>
@@ -45,7 +45,7 @@
 
 		<tr>
 			<td>Status</td>
-			<td><%= f.number_field :status %></td>
+			<td><%= f.select(:status_id, @statuses.map{|t|[t.name, t.id]}) %></td>
 		</tr>
 
 		<tr>

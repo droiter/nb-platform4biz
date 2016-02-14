@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+	before_action :set_form, only: [:new, :edit]
 
   # GET /users
   # GET /users.json
@@ -75,9 +76,13 @@ class UsersController < ApplicationController
 			end
     end
 
+		def set_form
+			@statuses = Status.all
+		end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
 #      params[:user]
-			params.require(:user).permit(:status)
+			params.require(:user).permit(:status_id)
     end
 end

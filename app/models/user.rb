@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 	has_many :assignments
 	has_many :roles, through: :assignments
 	has_many :organizations, through: :assignments
+	belongs_to	:status
 
   def self.create_with_omniauth(auth)
     create! do |user|

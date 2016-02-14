@@ -17,7 +17,7 @@
       <tr>
 				<td><%= role.name %></td>
 				<td><%= role.description %></td>
-				<td><%= role.status %></td>
+				<td><%= role.status.name %></td>
         <td><%= link_to 'Show', role, class: "btn btn-primary btn-block" %>
         <%= link_to 'Edit', edit_role_path(role), class: "btn btn-primary btn-block" %>
         <%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-block" %></td>

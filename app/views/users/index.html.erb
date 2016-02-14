@@ -19,7 +19,7 @@
 				<td><%= user.uid %></td>
 				<td><%= user.screen_name %></td>
 				<td><%= user.name %></td>
-				<td><%= user.status %></td>
+				<td><%= user.status.name %></td>
         <td><%= link_to 'Show', user, class: 'btn btn-primary btn-block' %>
         <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-primary btn-block' %>
         <%= link_to 'Destroy', user, class: 'btn btn-primary btn-block', method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,5 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
+	before_action :set_form, only: [:new, :edit]
 
   # GET /organizations
   # GET /organizations.json
@@ -67,9 +68,13 @@ class OrganizationsController < ApplicationController
       @organization = Organization.find(params[:id])
     end
 
+		def set_form
+			@statuses = Status.all
+		end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def organization_params
 #      params[:organization]
-			params.require(:organization).permit(:name, :description, :industry, :employee_num, :status)
+			params.require(:organization).permit(:name, :description, :industry, :employee_num, :status_id)
     end
 end

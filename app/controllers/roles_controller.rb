@@ -1,5 +1,6 @@
 class RolesController < ApplicationController
   before_action :set_role, only: [:show, :edit, :update, :destroy]
+	before_action :set_form, only: [:new, :edit]
 
   # GET /roles
   # GET /roles.json
@@ -67,9 +68,13 @@ class RolesController < ApplicationController
       @role = Role.find(params[:id])
     end
 
+		def set_form
+			@statuses = Status.all
+		end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def role_params
 #      params[:role]
-			params.require(:role).permit(:name, :description, :status)
+			params.require(:role).permit(:name, :description, :status_id)
     end
 end

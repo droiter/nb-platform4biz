@@ -71,26 +71,15 @@ class AssignmentsController < ApplicationController
 
 		def set_form
 
-			@user_list = []
-			@role_list = []
-			@organization_list = []
-
-			User.all.each do |user|
-      	@user_list.push([user.name, user.id])
-    	end
-
-    	Role.all.each do |role|
-      	@role_list.push([role.name, role.id])
-    	end
-
-			Organization.all.each do |organization|
-				@organization_list.push([organization.name, organization.id])
-			end
+			@users = User.all
+			@roles = Role.all
+			@organizations = Organization.all
+			@statuses = Status.all
 
 		end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assignment_params
-      params.require(:assignment).permit(:user_id, :role_id, :organization_id, :start_date, :end_date, :status, :description)
+      params.require(:assignment).permit(:user_id, :role_id, :organization_id, :start_date, :end_date, :status, :status_id, :description)
     end
 end

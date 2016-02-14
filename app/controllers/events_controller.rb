@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+	before_action :set_form, only: [:new, :edit]
 
   # GET /events
   # GET /events.json
@@ -67,9 +68,14 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
+		def set_form
+			@users = User.all
+			@statuses = Status.all
+		end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
 #      params[:event]
-			params.require(:event).permit(:name, :description, :location, :start_time, :end_time, :status, :user_id)
+			params.require(:event).permit(:name, :description, :location, :start_time, :end_time, :status_id, :user_id)
     end
 end
