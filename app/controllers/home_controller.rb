@@ -1,9 +1,15 @@
 class HomeController < ApplicationController
   def index
 
+		require 'open-uri'
+		require 'json'
+
+#		res = open('https://sandbox-quickbooks.api.intuit.com/v3/company/1440855105/reports/BalanceSheet?=Sample%20request%20body%20unavailable&minorversion=4')
+
 		if session[:user_id]
 
-			@organizations = Organization.all
+			assignments = Assignment.where(:user_id => session[:user_id])
+			@organizations = Organization.where(id:  assignments.map{|t|t.organization_id})
 
 			@chart = LazyHighCharts::HighChart.new('graph') do |f|
  				f.title(:text => "Financial Performance")
