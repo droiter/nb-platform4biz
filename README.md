@@ -1,4 +1,4 @@
-# nb-platform4biz
+# NASEBANAL Platform for Business
 
 This is an open source project for new business platform.
 You can see the demo from https://www.youtube.com/watch?v=s3LiMk8aCRw
