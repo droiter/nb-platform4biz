@@ -1,4 +1,5 @@
 class UserTypesController < ApplicationController
+	before_action :login_required
   before_action :set_user_type, only: [:show, :edit, :update, :destroy]
 
   # GET /user_types

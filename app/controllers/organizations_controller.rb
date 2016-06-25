@@ -1,4 +1,5 @@
 class OrganizationsController < ApplicationController
+	before_action :login_required
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
 	before_action :set_form, only: [:new, :edit]
 

@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get 'home/index'
 	root 'home#index'
 
-	get '/auth/:provider/callback', :to => 'sessions#callback'
-	post '/auth/:provider/callback', :to => 'sessions#callback'
-	get '/auth/github', :as => :login
+#	get '/auth/:provider/callback', :to => 'sessions#callback'
+#	post '/auth/:provider/callback', :to => 'sessions#callback'
+	get '/auth/:provider/callback', :to => 'sessions#create'
 	get '/auth/quickbooks', :as => :login_qb
 	get '/logout' => 'sessions#destroy', :as => :logout
 
