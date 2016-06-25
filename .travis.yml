@@ -1,0 +1,7 @@
+language: ruby
+rvm:
+- 2.3.1
+before_script:
+- psql -c "CREATE USER nasebanal WITH PASSWORD 'nasebanal';" -U postgres
+- psql -c 'CREATE DATABASE "nb-platform4biz_test";' -U postgres
+script: bundle exec rspec spec
