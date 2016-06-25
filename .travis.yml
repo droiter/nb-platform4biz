@@ -5,3 +5,6 @@ before_script:
 - psql -c "CREATE USER nasebanal WITH PASSWORD 'nasebanal';" -U postgres
 - psql -c 'CREATE DATABASE "nb-platform4biz_test";' -U postgres
 script: bundle exec rspec spec
+env:
+  global:
+    secure: FTa37kKuOQutYH1SXDJY0YN8EkamjSmdGwebqJb2qLZqhq/70R8/JmuzRO6+9azK7e6hR3P8gaIBK/gpZyx3mZsGYp/Cit+3CTQuAorp7sBZLytkkWCpv6hTimYhyvpQVqe8rU0MDMfy9IQ31NdVGqU0Fq6e05ur57QGju2QwuXBrj9Q/ud9cVjh3Ey2g09Pcchc4RTe7mUpakgoJvWuCkHfnJimqVjmv5Uez0rq8HmnaV8T50CFg+UH0yaDVu8uabHx4VmbkVNDB3M8j8ZQbMSoJS1Jo4r0p6uJ4wSZWavXc/B54dodPBGKkH6QtDOHvSU8x/pRQB0rjv7PB6sPBRQ0HwpCFXJBx6eED5pNjh+J5xsAQkStl9Qo8eWJKhf4iHF4vcGTxjlh00XZYj80LOZu7QJIrs61ylyJACjV8quZtmvBFVu6mFzBxT9z+Yh7gxzNqTwRnYRQDPobUmIGNcgrnjBfA3rgwwTP5XX6eNQakzuiOmtUu/OXgh/KgqmpY2CQUEI+QTEWYsQHo7xmXBfvQb42LOPYdva/8NRzrm/7sc6hgbA4fB9lYx4IuQWpeGBJKqqdWQqzpJMkOc5IB8EjRLciaKhnIl8s5e5ywesuFkZskiQ/rQDr++wYcsG/nt6uz1H+1YrNFYCOdGC1+EzZCN97GhRPP7tAEGKaAtI=
