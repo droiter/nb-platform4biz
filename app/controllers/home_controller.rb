@@ -23,6 +23,8 @@ class HomeController < ApplicationController
 		end
 =end
 
+		#======= Variable =======
+
 		category_list = []
 		revenue_list	= []
 		income_list		= []
@@ -30,6 +32,9 @@ class HomeController < ApplicationController
 		category_list_dummy = []
     revenue_list_dummy  = []
     income_list_dummy   = []
+
+
+		#======= If logged in =======
 
 		if session[:user_id]
 
@@ -43,27 +48,41 @@ class HomeController < ApplicationController
 			end
 			
 
+			#======= Dummy Data =======
+
 			category_list_dummy = ["Intuit", "Banpil Photonics", "Open Source Innovation Labs"]
 			revenue_list_dummy	= [14119, 5058, 4985]
 			income_list_dummy	= [10210, 4127, 5340]
 
 
-			@chart = LazyHighCharts::HighChart.new('graph') do |f|
- 				f.title(:text => "Financial Performance")
-				f.xAxis(:categories => category_list)
-				f.series(:name => "Revenue", :yAxis => 0, :data => revenue_list)
-				f.series(:name => "Net Income", :yAxis => 1, :data => income_list)
+			#======= Prepare Chart =======
 
- 				f.yAxis [
-   				{:title => {:text => "Revenue [USD]", :margin => 70} },
-   				{:title => {:text => "Net Income [USD]"}, :opposite => true},
- 				]
+			set_chart(category_list, revenue_list, income_list)
 
-				f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
-				f.chart({:defaultSeriesType=>"column"})
-			end
+
+			#======= Rendering =======
 
 			render :dashboard
+
 		end
   end
+
+	private
+
+	def set_chart(category_list, revenue_list, income_list)
+		@chart = LazyHighCharts::HighChart.new('graph') do |f|
+        f.title(:text => "Financial Performance")
+        f.xAxis(:categories => category_list)
+        f.series(:name => "Revenue", :yAxis => 0, :data => revenue_list)
+        f.series(:name => "Net Income", :yAxis => 1, :data => income_list)
+
+        f.yAxis [
+          {:title => {:text => "Revenue [USD]", :margin => 70} },
+          {:title => {:text => "Net Income [USD]"}, :opposite => true},
+        ]
+
+        f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
+        f.chart({:defaultSeriesType=>"column"})
+		end
+	end
 end

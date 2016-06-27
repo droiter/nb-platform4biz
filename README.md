@@ -3,7 +3,6 @@
 [![Build Status](https://travis-ci.org/nasebanal/nb-platform4biz.svg)](https://travis-ci.org/nasebanal/nb-platform4biz)
 [![Code Climate](https://codeclimate.com/github/nasebanal/nb-platform4biz/badges/gpa.svg)](https://codeclimate.com/github/nasebanal/nb-platform4biz)
 [![Test Coverage](https://codeclimate.com/github/nasebanal/nb-platform4biz/badges/coverage.svg)](https://codeclimate.com/github/nasebanal/nb-platform4biz/coverage)
-[![Issue Count](https://codeclimate.com/github/nasebanal/nb-platform4biz/badges/issue_count.svg)](https://codeclimate.com/github/nasebanal/nb-platform4biz)
 [![Inline docs](http://inch-ci.org/github/nasebanal/nb-platform4biz.svg?branch=master)](http://inch-ci.org/github/nasebanal/nb-platform4biz)
 
 
