@@ -11,21 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214022053) do
+ActiveRecord::Schema.define(version: 20160627053420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "assignments", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "role_id"
-    t.integer  "organization_id"
+    t.integer  "user_id",                     null: false
+    t.integer  "role_id",                     null: false
+    t.integer  "organization_id",             null: false
     t.date     "start_date"
     t.date     "end_date"
     t.string   "description"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "status_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "status_id",       default: 0, null: false
   end
 
   add_index "assignments", ["organization_id"], name: "index_assignments_on_organization_id", using: :btree
@@ -77,14 +77,14 @@ ActiveRecord::Schema.define(version: 20160214022053) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "screen_name"
     t.string   "name"
-    t.integer  "status_id"
-    t.integer  "user_type_id"
+    t.integer  "status_id",    default: 1, null: false
+    t.integer  "user_type_id", default: 1, null: false
   end
 
 end

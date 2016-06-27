@@ -70,8 +70,8 @@ class EventsController < ApplicationController
     end
 
 		def set_form
-			@users = User.all
-			@statuses = Status.all
+			@users = User.all.select("id, name")
+			@statuses = Status.all.select("id, name")
 		end
 
     # Never trust parameters from the scary internet, only allow the white list through.
