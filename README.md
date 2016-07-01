@@ -1,9 +1,9 @@
 # NASEBANAL Platform for Business
 
 [![Build Status](https://travis-ci.org/nasebanal/nb-platform4biz.svg)](https://travis-ci.org/nasebanal/nb-platform4biz)
-[![Code Climate](https://codeclimate.com/github/nasebanal/nb-platform4biz/badges/gpa.svg)](https://codeclimate.com/github/nasebanal/nb-platform4biz)
-[![Test Coverage](https://codeclimate.com/github/nasebanal/nb-platform4biz/badges/coverage.svg)](https://codeclimate.com/github/nasebanal/nb-platform4biz/coverage)
-[![Inline docs](http://inch-ci.org/github/nasebanal/nb-platform4biz.svg?branch=master)](http://inch-ci.org/github/nasebanal/nb-platform4biz)
+#[![Code Climate](https://codeclimate.com/github/nasebanal/nb-platform4biz/badges/gpa.svg)](https://codeclimate.com/github/nasebanal/nb-platform4biz)
+#[![Test Coverage](https://codeclimate.com/github/nasebanal/nb-platform4biz/badges/coverage.svg)](https://codeclimate.com/github/nasebanal/nb-platform4biz/coverage)
+#[![Inline docs](http://inch-ci.org/github/nasebanal/nb-platform4biz.svg?branch=master)](http://inch-ci.org/github/nasebanal/nb-platform4biz)
 
 
 This is an open source project for new business platform.
@@ -31,7 +31,7 @@ NB_QUICKBOOKS_SECRET|Secret key for QuickBooks Online User Auth|xxxx
 
 Step.3) Create Database.
 
- $ rake db:migrate
+ $ rake db:setup
 
 Step.4) Run the service.
 
