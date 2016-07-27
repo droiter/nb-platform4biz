@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627053420) do
+ActiveRecord::Schema.define(version: 20160727033642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "user_id",                     null: false
@@ -32,6 +39,14 @@ ActiveRecord::Schema.define(version: 20160627053420) do
   add_index "assignments", ["role_id"], name: "index_assignments_on_role_id", using: :btree
   add_index "assignments", ["user_id"], name: "index_assignments_on_user_id", using: :btree
 
+  create_table "calendars", force: :cascade do |t|
+    t.string   "type"
+    t.datetime "from"
+    t.datetime "to"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -45,6 +60,29 @@ ActiveRecord::Schema.define(version: 20160627053420) do
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
+
+  create_table "ledger_accounts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.integer  "ledger_id"
+    t.integer  "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "ledger_accounts", ["account_id"], name: "index_ledger_accounts_on_account_id", using: :btree
+  add_index "ledger_accounts", ["ledger_id"], name: "index_ledger_accounts_on_ledger_id", using: :btree
+
+  create_table "ledgers", force: :cascade do |t|
+    t.integer  "calendar_id"
+    t.integer  "type"
+    t.string   "account"
+    t.float    "amount"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "ledgers", ["calendar_id"], name: "index_ledgers_on_calendar_id", using: :btree
 
   create_table "organizations", force: :cascade do |t|
     t.datetime "created_at",   null: false

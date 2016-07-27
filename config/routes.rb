@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :accounts
+  resources :ledgers
+  resources :calendars
   resources :user_types
   resources :statuses
   get 'members/index', :as => :members
