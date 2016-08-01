@@ -25,39 +25,46 @@ class HomeController < ApplicationController
 
 		#======= Variable =======
 
-		category_list = []
-		revenue_list	= []
-		income_list		= []
-
-		category_list_dummy = []
-    revenue_list_dummy  = []
-    income_list_dummy   = []
+		category_list 			= []
+		direct_list					= []
+		overhead_list				= []
+		sga_list						= []
+		other_list					= []
+		netincome_list			= []
 
 
 		#======= If logged in =======
 
 		if session[:user_id]
 
-			assignments = Assignment.where(:user_id => session[:user_id])
-			@organizations = Organization.where(id:  assignments.map{|t|t.organization_id})
+			assignments = Assignment.where(
+				:user_id => session[:user_id]
+			)
+
+			@organizations = Organization.where(
+				id:  assignments.map{|t|t.organization_id}
+			)
 
 			@organizations.each do |organization|
 				category_list.push(organization.name)
-				revenue_list.push(1000)
-				income_list.push(1000)
+				direct_list.push(1000)
+				overhead_list.push(1000)
+				sga_list.push(1000)
+				other_list.push(1000)
+				netincome_list.push(1000)
 			end
 			
 
-			#======= Dummy Data =======
-
-			category_list_dummy = ["Intuit", "Banpil Photonics", "Open Source Innovation Labs"]
-			revenue_list_dummy	= [14119, 5058, 4985]
-			income_list_dummy	= [10210, 4127, 5340]
-
-
 			#======= Prepare Chart =======
 
-			set_chart(category_list, revenue_list, income_list)
+			set_chart(
+				category_list,
+				direct_list,
+				overhead_list,
+				other_list,
+				sga_list,
+				netincome_list
+			)
 
 
 			#======= Rendering =======
@@ -69,20 +76,49 @@ class HomeController < ApplicationController
 
 	private
 
-	def set_chart(category_list, revenue_list, income_list)
+	def set_chart(
+		category_list, 
+		direct_list, 
+		overhead_list, 
+		sga_list, 
+		other_list, 
+		netincome_list
+	)
+
 		@chart = LazyHighCharts::HighChart.new('graph') do |f|
         f.title(:text => "Financial Performance")
         f.xAxis(:categories => category_list)
-        f.series(:name => "Revenue", :yAxis => 0, :data => revenue_list)
-        f.series(:name => "Net Income", :yAxis => 1, :data => income_list)
-
+        f.series({name: "Direct Cost [USD]", data: direct_list})
+				f.series({name: "Overhead Cost [USD]", data: overhead_list})
+				f.series({name: "SG&A Cost [USD]", data: sga_list})
+				f.series({name: "Other Cost [USD]", data: other_list})
+				f.series({name: "Net Income [USD]", data: netincome_list})
         f.yAxis [
-          {:title => {:text => "Revenue [USD]", :margin => 70} },
-          {:title => {:text => "Net Income [USD]"}, :opposite => true},
+          {:title => {:text => "Revenue [USD]", :margin => 70} }
         ]
 
-        f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
-        f.chart({:defaultSeriesType=>"column"})
+        f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical')
+        f.chart(
+					{defaultSeriesType: "column"}
+				)
+				f.tooltip(
+					{
+						headerFormat: '<b>{point.x}</b><br/>',
+						pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+					}
+				)
+				f.plot_options(
+					{column: 
+						{
+							stacking: 'normal', 
+							depth: 40, 
+							dataLabels: {
+								enabled: true,
+								color: 'white'
+							}
+						}
+					}
+				)
 		end
 	end
 end

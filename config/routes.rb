@@ -1,29 +1,43 @@
 Rails.application.routes.draw do
+
+  #======= Home =======
+
+  root 'home#index'
+  get 'home/index'
+  get 'members/index', :as => :members
+  get 'dashboard/index', :as => :dashboard
+
+
+  #======= Callback =======
+
+# get '/auth/:provider/callback', :to => 'sessions#callback'
+# post '/auth/:provider/callback', :to => 'sessions#callback'
+  get '/auth/:provider/callback', :to => 'sessions#create'
+  get '/auth/quickbooks', :as => :login_qb
+  get '/logout' => 'sessions#destroy', :as => :logout
+
+
+  #======= Main Menu =======
+
+  resources :assignments
+  resources :roles
+  resources :organizations
+  resources :events
+  resources :users do
+    resources :organizations
+    resources :roles
+    resources :events
+  end
+
+
+  #======= Master Maintenance =======
+
   resources :accounts
   resources :ledgers
   resources :calendars
   resources :user_types
   resources :statuses
-  get 'members/index', :as => :members
-  get 'dashboard/index', :as => :dashboard
-  get 'home/index'
-	root 'home#index'
 
-#	get '/auth/:provider/callback', :to => 'sessions#callback'
-#	post '/auth/:provider/callback', :to => 'sessions#callback'
-	get '/auth/:provider/callback', :to => 'sessions#create'
-	get '/auth/quickbooks', :as => :login_qb
-	get '/logout' => 'sessions#destroy', :as => :logout
-
-	resources :assignments
-  resources :roles
-  resources :organizations
-  resources :events
-  resources :users do
-		resources :organizations
-		resources :roles
-		resources :events
-	end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

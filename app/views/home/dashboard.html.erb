@@ -9,13 +9,17 @@
 <%= @code %>
 <%= @result %>
 
+
+<h3>Overall Information</h3>
+
 <table class="table table-hover">
-	<caption>Overall Information</caption>
   <thead>
     <tr>
 			<th>ORGANIATION NAME</th>
 			<th>DESCRIPTION</th>
 			<th>STATUS</th>
+			<th>M-SCORE / Z-SCORE</th>
+			<th>MESSAGE</th>
 			<th>ACTION</th>
     </tr>
   </thead>
@@ -26,14 +30,26 @@
 				<td><%= organization.name %></td>
 				<td><%= organization.description %></td>
 				<td></td>
-        <td><%= link_to 'Show', organization, class: 'btn btn-primary' %></td>
+				<td>1.0 / 1.0</td>
+				<td>Fine</td>
+        <td><%= link_to 'Show', organization, class: 'btn btn-primary' %> <%= link_to 'Comp', organization, class: 'btn btn-primary' %> <%= link_to 'Time', organization, class: 'btn btn-primary' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+
+<h3>Financial Ratio</h3>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">Liquidity Ratio</a></li>
+  <li><a href="#">Solvency Ratio</a></li>
+  <li><a href="#">Profitability Ratio</a></li>
+	<li><a href="#">Activity Ratio</a></li>
+</ul>
+
+<div id="liquidity">
 <table class="table table-hover">
-	<caption>Liquidity Ratio</caption>
 	<thead>
 		<tr>
 			<th>ORGANIZATION NAME</th>
@@ -56,9 +72,10 @@
 		<% end %>
 	</tbody>
 </table>
+</div>
 
+<div id="solvency">
 <table class="table table-hover">
-	<caption>solvency Ratios</caption>
 	<thead>
 		<tr>
 			<th>ORGANIZATION NAME</th>
@@ -81,8 +98,10 @@
     <% end %>
 	</tbody>
 </table>
+</div>
 
 
+<div id="profitability">
 <table class="table table-hover">
   <caption>Profitability Ratios</caption>
   <thead>
@@ -113,7 +132,9 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
+<div id="activity">
 <table class="table table-hover">
   <caption>Activity Ratios</caption>
   <thead>
@@ -140,3 +161,33 @@
     <% end %>
   </tbody>
 </table>
+</div>
+
+
+<h3>Financial Statements</h3>
+
+<%= form_tag(home_index_path) do |f| %>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>ORGANIZATION NAME</th>
+			<th>FISCAL YEAR</th>
+			<th>QUARTER</th>
+			<th>ACTION</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @organizations.each do |organization| %>
+			<tr>
+				<td><%= organization.name %></td>
+				<td><%= select_tag 'organization', options_for_select(['2016', '2015', '2014']) %></td>
+				<td><%= select_tag 'organization', options_for_select(['Q1', 'Q2', 'Q3', 'Q4']) %></td>
+				<td><%= submit_tag "Download", class: 'btn btn-primary' %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<% end %>
+
