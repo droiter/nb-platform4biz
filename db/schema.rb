@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727033642) do
+ActiveRecord::Schema.define(version: 20160804204537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.string   "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "code",       null: false
   end
 
   create_table "assignments", force: :cascade do |t|
@@ -62,16 +63,11 @@ ActiveRecord::Schema.define(version: 20160727033642) do
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "ledger_accounts", force: :cascade do |t|
-    t.string   "name"
-    t.string   "type"
     t.integer  "ledger_id"
     t.integer  "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "ledger_accounts", ["account_id"], name: "index_ledger_accounts_on_account_id", using: :btree
-  add_index "ledger_accounts", ["ledger_id"], name: "index_ledger_accounts_on_ledger_id", using: :btree
 
   create_table "ledgers", force: :cascade do |t|
     t.integer  "calendar_id"

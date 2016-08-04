@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ledger:</strong>
+  <%= @ledger_account.ledger_id %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @ledger_account.account_id %>
+</p>
+
+<%= link_to 'Edit', edit_ledger_account_path(@ledger_account) %> |
+<%= link_to 'Back', ledger_accounts_path %>
