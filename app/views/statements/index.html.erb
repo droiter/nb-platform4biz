@@ -1,0 +1,33 @@
+<h2><i class="glyphicon glyphicon-book"> Financial Statements</i></h2>
+
+<p id="notice"><%= notice %></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>TYPE</th>
+      <th>CALENDAR</th>
+      <th>CREATED AT</th>
+      <th>UPDATED AT</th>
+      <th width="150"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @statements.each do |statement| %>
+      <tr>
+        <td><%= statement.statement_type %></td>
+        <td><%= statement.calendar_id %></td>
+        <td><%= statement.created_at %></td>
+        <td><%= statement.updated_at %></td>
+        <td><%= link_to 'Show', statement, class: "btn btn-primary btn-block" %>
+        <%= link_to 'Edit', edit_statement_path(statement), class: "btn btn-primary btn-block" %>
+        <%= link_to 'Destroy', statement, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-block" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Statement', new_statement_path %>

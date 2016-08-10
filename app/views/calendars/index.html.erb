@@ -1,8 +1,8 @@
+<h2><i class="glyphicon glyphicon-calendar"> Calendar List</i></h2>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Calendars</h1>
-
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Type</th>
@@ -17,14 +17,14 @@
   <tbody>
     <% @calendars.each do |calendar| %>
       <tr>
-        <td><%= calendar.type %></td>
+        <td><%= calendar.calendar_type %></td>
         <td><%= calendar.from %></td>
         <td><%= calendar.to %></td>
         <td><%= calendar.created_at %></td>
         <td><%= calendar.updated_at %></td>
-        <td><%= link_to 'Show', calendar %></td>
-        <td><%= link_to 'Edit', edit_calendar_path(calendar) %></td>
-        <td><%= link_to 'Destroy', calendar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', calendar, class: "btn btn-primary btn-block" %></td>
+        <td><%= link_to 'Edit', edit_calendar_path(calendar), class: "btn btn-primary btn-block" %></td>
+        <td><%= link_to 'Destroy', calendar, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-block" %></td>
       </tr>
     <% end %>
   </tbody>

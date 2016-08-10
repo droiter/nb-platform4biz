@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804204537) do
+ActiveRecord::Schema.define(version: 20160810060436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "code",       null: false
+    t.string   "name",         null: false
+    t.string   "account_type"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "code",         null: false
   end
 
   create_table "assignments", force: :cascade do |t|
@@ -41,11 +41,11 @@ ActiveRecord::Schema.define(version: 20160804204537) do
   add_index "assignments", ["user_id"], name: "index_assignments_on_user_id", using: :btree
 
   create_table "calendars", force: :cascade do |t|
-    t.string   "type"
-    t.datetime "from"
-    t.datetime "to"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "calendar_type"
+    t.date     "from"
+    t.date     "to"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "events", force: :cascade do |t|
@@ -70,15 +70,13 @@ ActiveRecord::Schema.define(version: 20160804204537) do
   end
 
   create_table "ledgers", force: :cascade do |t|
-    t.integer  "calendar_id"
-    t.integer  "type"
+    t.integer  "ledger_type"
     t.string   "account"
     t.float    "amount"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "statement_id"
   end
-
-  add_index "ledgers", ["calendar_id"], name: "index_ledgers_on_calendar_id", using: :btree
 
   create_table "organizations", force: :cascade do |t|
     t.datetime "created_at",   null: false
@@ -96,6 +94,13 @@ ActiveRecord::Schema.define(version: 20160804204537) do
     t.string   "name"
     t.string   "description"
     t.integer  "status_id"
+  end
+
+  create_table "statements", force: :cascade do |t|
+    t.integer  "statement_type"
+    t.integer  "calendar_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "statuses", force: :cascade do |t|

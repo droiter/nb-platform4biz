@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :calendars
+  resources :calendars
+  resources :statements
   resources :ledger_accounts
   #======= Home =======
 
@@ -35,7 +38,6 @@ Rails.application.routes.draw do
 
   resources :accounts
   resources :ledgers
-  resources :calendars
   resources :user_types
   resources :statuses
 

@@ -1,10 +1,10 @@
-<%= form_for(@calendar) do |f| %>
-  <% if @calendar.errors.any? %>
+<%= form_for(@statement) do |f| %>
+  <% if @statement.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@calendar.errors.count, "error") %> prohibited this calendar from being saved:</h2>
+      <h2><%= pluralize(@statement.errors.count, "error") %> prohibited this statement from being saved:</h2>
 
       <ul>
-      <% @calendar.errors.full_messages.each do |message| %>
+      <% @statement.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -19,17 +19,12 @@
 
 		<tr>
 			<td>Type</td>
-			<td><%= f.text_field :calendar_type %></td>
+			<td><%= f.number_field :statement_type %></td>
 		</tr>
 
 		<tr>
-			<td>From</td>
-			<td><%= f.date_select :from %></td>
-		</tr>
-
-		<tr>
-			<td>To</td>
-			<td><%= f.date_select :to %></td>
+			<td>Calendar</td>
+			<td><%= f.number_field :calendar_id %></td>
 		</tr>
 
 		<tr>

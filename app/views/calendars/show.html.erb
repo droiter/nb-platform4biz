@@ -1,29 +1,40 @@
+<h2><i class="glyphicon glyphicon-info-sign"> Show Calendar</i></h2>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @calendar.type %>
-</p>
+<table class="table table-hover">
+	<caption>Calendar Information</caption>
 
-<p>
-  <strong>From:</strong>
-  <%= @calendar.from %>
-</p>
+	<tr>
+		<th>KEY</th>
+		<th>VALUE</th>
+	</tr>
 
-<p>
-  <strong>To:</strong>
-  <%= @calendar.to %>
-</p>
+	<tr>
+		<td>Type</td>
+		<td><%= @calendar.calendar_type %></td>
+	</tr>
 
-<p>
-  <strong>Created at:</strong>
-  <%= @calendar.created_at %>
-</p>
+	<tr>
+		<td>From</td>
+		<td><%= @calendar.from %></td>
+	</tr>
 
-<p>
-  <strong>Updated at:</strong>
-  <%= @calendar.updated_at %>
-</p>
+	<tr>
+		<td>To</td>
+		<td><%= @calendar.to %></td>
+	</tr>
+
+	<tr>
+		<td>Created at</td>
+  	<td><%= @calendar.created_at %></td>
+	</tr>
+	
+	<tr>
+		<td>Updated at</td>
+		<td><%= @calendar.updated_at %></td>
+	</tr>
+</table>
 
 <%= link_to 'Edit', edit_calendar_path(@calendar) %> |
 <%= link_to 'Back', calendars_path %>

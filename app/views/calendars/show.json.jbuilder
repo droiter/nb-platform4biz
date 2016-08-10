@@ -1,1 +1,1 @@
-json.extract! @calendar, :id, :type, :from, :to, :created_at, :updated_at, :created_at, :updated_at
+json.extract! @calendar, :id, :calendar_type, :from, :to, :created_at, :updated_at, :created_at, :updated_at
