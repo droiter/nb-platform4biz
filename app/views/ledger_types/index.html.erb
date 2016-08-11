@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Ledger Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ledger_types.each do |ledger_type| %>
+      <tr>
+        <td><%= ledger_type.name %></td>
+        <td><%= ledger_type.created_at %></td>
+        <td><%= ledger_type.updated_at %></td>
+        <td><%= link_to 'Show', ledger_type %></td>
+        <td><%= link_to 'Edit', edit_ledger_type_path(ledger_type) %></td>
+        <td><%= link_to 'Destroy', ledger_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ledger type', new_ledger_type_path %>

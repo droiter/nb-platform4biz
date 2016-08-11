@@ -1,0 +1,2 @@
+module StatementTypesHelper
+end

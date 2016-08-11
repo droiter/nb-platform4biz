@@ -11,30 +11,43 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :calendar_id %><br>
-    <%= f.number_field :calendar_id %>
-  </div>
-  <div class="field">
-    <%= f.label :type %><br>
-    <%= f.number_field :type %>
-  </div>
-  <div class="field">
-    <%= f.label :account %><br>
-    <%= f.text_field :account %>
-  </div>
-  <div class="field">
-    <%= f.label :amount %><br>
-    <%= f.text_field :amount %>
-  </div>
-  <div class="field">
-    <%= f.label :created_at %><br>
-    <%= f.datetime_select :created_at %>
-  </div>
-  <div class="field">
-    <%= f.label :updated_at %><br>
-    <%= f.datetime_select :updated_at %>
-  </div>
+	<table class="table table-hover">
+		<tr>
+			<th>KEY</th>
+			<th>VALUE</th>
+		</tr>
+
+		<tr>
+			<td>Statement Type</td>
+			<td><%= f.number_field :statement_id %></td>
+		</tr>
+
+		<tr>
+			<td>Ledger Type</td>
+			<td><%= f.number_field :ledger_type_id %></td>
+		</tr>
+
+		<tr>
+			<td>Account</td>
+			<td><%= f.text_field :account %></td>
+		</tr>
+
+		<tr>
+			<td>Amount</td>
+			<td><%= f.text_field :amount %></td>
+		</tr>
+
+		<tr>
+			<td>Created at</td>
+			<td><%= f.datetime_select :created_at %></td>
+		<tr>
+
+		<tr>
+			<td>Updated at</td>
+			<td><%= f.datetime_select :updated_at %></td>
+		</tr>
+	</table>
+
   <div class="actions">
     <%= f.submit %>
   </div>

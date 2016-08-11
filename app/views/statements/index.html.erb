@@ -2,6 +2,11 @@
 
 <p id="notice"><%= notice %></p>
 
+<%= form_tag(statements_path, method: :get) do |f| %>
+	<%= file_field_tag 'filename' %>
+	<%= submit_tag "Upload File" %>
+<% end %>
+
 <table class="table table-hover">
   <thead>
     <tr>
@@ -9,18 +14,19 @@
       <th>CALENDAR</th>
       <th>CREATED AT</th>
       <th>UPDATED AT</th>
-      <th width="150"></th>
+      <th width="150">ACTION</th>
     </tr>
   </thead>
 
   <tbody>
     <% @statements.each do |statement| %>
       <tr>
-        <td><%= statement.statement_type %></td>
-        <td><%= statement.calendar_id %></td>
+        <td><%= statement.statement_type.name %></td>
+        <td><%= statement.calendar.calendar_type %></td>
         <td><%= statement.created_at %></td>
         <td><%= statement.updated_at %></td>
         <td><%= link_to 'Show', statement, class: "btn btn-primary btn-block" %>
+				<%= link_to 'Select', statements_path(id: statement), class: "btn btn-primary btn-block" %>
         <%= link_to 'Edit', edit_statement_path(statement), class: "btn btn-primary btn-block" %>
         <%= link_to 'Destroy', statement, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-block" %></td>
       </tr>
@@ -31,3 +37,32 @@
 <br>
 
 <%= link_to 'New Statement', new_statement_path %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>CALENDAR</th>
+			<th>STATEMENT TYPE</th>
+			<th>LEDGER TYPE</th>
+      <th>ACCOUNT</th>
+			<th>AMOUNT</th>
+      <th>CREATED AT</th>
+      <th>UPDATED AT</th>
+      <th width="150">ACTION</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ledgers.each do |ledger| %>
+      <tr>
+				<td><%= ledger.statement.calendar.calendar_type %></td>
+				<td><%= ledger.statement.statement_type.name %></td>
+        <td><%= ledger.ledger_type.name %></td>
+        <td><%= ledger.account %></td>
+        <td><%= ledger.amount %></td>
+				<td><%= ledger.created_at %></td>
+        <td><%= ledger.updated_at %></td>
+				<td></td>
+    <% end %>
+  </tbody>
+</table>

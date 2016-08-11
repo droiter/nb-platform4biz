@@ -5,6 +5,12 @@ class StatementsController < ApplicationController
   # GET /statements.json
   def index
     @statements = Statement.all
+		@ledgers = []
+
+		if params[:id]
+			id = params[:id]
+			@ledgers = Statement.find(id).ledgers
+		end
   end
 
   # GET /statements/1
@@ -69,6 +75,6 @@ class StatementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def statement_params
-      params.require(:statement).permit(:statement_type, :calendar_id, :created_at, :updated_at)
+      params.require(:statement).permit(:statement_type_id, :calendar_id, :created_at, :updated_at, :id)
     end
 end

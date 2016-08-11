@@ -29,19 +29,20 @@
         <div id="navbar" class="navbar-collapse collapse">
         <% if current_user %>
           <ul class="nav navbar-nav">
-						<li><%= link_to 'Members', members_path %></li>
-						<li><%= link_to 'Events', events_path %></li>
+						<li><%= link_to 'MEMBERS', members_path %></li>
+						<li><%= link_to 'EVENTS', events_path %></li>
 
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data<span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FINANCIAL DATA<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><%= link_to 'Data Import', statements_path %></li>
 								<li><%= link_to 'Data Mapping', ledger_accounts_path %></li>
+								<li><%= link_to 'Data Maintenance', ledgers_path %></li>
 							</ul>
 						</li>
 
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Setting <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SETTINGS<span class="caret"></span></a>
               <ul class="dropdown-menu">
 								<li><%= link_to 'User Setting', users_path %></li>
 								<li><%= link_to 'Event Setting', events_path %></li>

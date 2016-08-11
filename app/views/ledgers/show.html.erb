@@ -1,34 +1,50 @@
+<h2><i class="glyphicon glyphicon-info-sign"> Show Ledgers</i></h2>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Calendar:</strong>
-  <%= @ledger.calendar_id %>
-</p>
+<table class="table table-hover">
+	<caption>Ledgers Information</caption>
 
-<p>
-  <strong>Type:</strong>
-  <%= @ledger.type %>
-</p>
+	<tr>
+		<th>KEY</th>
+		<th>VALUE</th>
+	</tr>
 
-<p>
-  <strong>Account:</strong>
-  <%= @ledger.account %>
-</p>
+	<tr>
+		<td>CALENDAR</td>
+		<td><%= @ledger.statement.calendar.calendar_type %></td>
+	</tr>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @ledger.amount %>
-</p>
+	<tr>
+		<td>STATEMENT TYPE</td>
+		<td><%= @ledger.statement.statement_type.name %></td>
+	</tr>
 
-<p>
-  <strong>Created at:</strong>
-  <%= @ledger.created_at %>
-</p>
+	<tr>
+		<td>LEDGER TYPE</td>
+		<td><%= @ledger.ledger_type.name %></td>
+	</tr>
 
-<p>
-  <strong>Updated at:</strong>
-  <%= @ledger.updated_at %>
-</p>
+	<tr>
+		<td>ACCOUNT</td>
+		<td><%= @ledger.account %></td>
+	</tr>
+
+	<tr>
+		<td>AMOUNT</td>
+		<td><%= @ledger.amount %></td>
+	</tr>
+
+	<tr>
+		<td>CREATED AT</td>
+		<td><%= @ledger.created_at %></td>
+	</tr>
+
+	<tr>
+		<td>UPDATED AT</td>
+		<td><%= @ledger.updated_at %></td>
+	</tr>
+</table>
 
 <%= link_to 'Edit', edit_ledger_path(@ledger) %> |
 <%= link_to 'Back', ledgers_path %>

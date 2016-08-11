@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :ledger_types
+  resources :statement_types
   resources :calendars
   resources :calendars
   resources :statements

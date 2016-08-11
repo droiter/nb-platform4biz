@@ -69,6 +69,6 @@ class LedgersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ledger_params
-      params.require(:ledger).permit(:calendar_id, :type, :account, :amount, :created_at, :updated_at)
+      params.require(:ledger).permit(:statement_id, :ledger_type_id, :account, :amount, :created_at, :updated_at)
     end
 end

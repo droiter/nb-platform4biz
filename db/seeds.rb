@@ -14,6 +14,23 @@ UserType.destroy_all
 UserType.create(id: 0, name: 'Super User')
 UserType.create(id: 1, name: 'Regular User')
 
+StatementType.destroy_all
+StatementType.create(
+	id: 0, 
+	name: 'Balanced Sheet',
+	created_at: DateTime.now,
+	updated_at: DateTime.now)
+StatementType.create(
+	id: 1,
+	name: 'Income Statement',
+	created_at: DateTime.now,
+	updated_at: DateTime.now)
+StatementType.create(
+	id: 2,
+	name: 'Cashflow Statement',
+	created_at: DateTime.now,
+	updated_at: DateTime.now)
+
 Calendar.destroy_all
 Calendar.create(
 	id: 0, 
@@ -108,5 +125,37 @@ Calendar.create(
   calendar_type: '201612',
   from: '2016-12-01',
   to: '2016-12-31',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+
+LedgerType.destroy_all
+LedgerType.create(
+	id: 0,
+	name: 'asset',
+	created_at: DateTime.now,
+	updated_at: DateTime.now)
+
+LedgerType.create(
+  id: 1,
+  name: 'liability',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+LedgerType.create(
+  id: 2,
+  name: 'equity',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+LedgerType.create(
+  id: 3,
+  name: 'expense',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+LedgerType.create(
+  id: 4,
+  name: 'revenue',
   created_at: DateTime.now,
   updated_at: DateTime.now)

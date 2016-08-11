@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ledger_type.name %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @ledger_type.created_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @ledger_type.updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_ledger_type_path(@ledger_type) %> |
+<%= link_to 'Back', ledger_types_path %>
