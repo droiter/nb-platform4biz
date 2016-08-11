@@ -33,8 +33,8 @@
 				<td>1.0 / 1.0</td>
 				<td>Fine</td>
         <td><%= link_to 'Show', organization, class: 'btn btn-primary btn-block' %> 
-				<%= link_to 'Comp', organization, class: 'btn btn-primary btn-block' %> 
-				<%= link_to 'Time', organization, class: 'btn btn-primary btn-block' %></td>
+				<%= link_to 'Comparison', comparison_index_path(org: organization), class: 'btn btn-primary btn-block' %> 
+				<%= link_to 'Time-series', timeseries_index_path(org: organization), class: 'btn btn-primary btn-block' %>'
       </tr>
     <% end %>
   </tbody>

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'timeseries/index'
+
+  get 'comparison/index'
+
   resources :ledger_types
   resources :statement_types
   resources :calendars

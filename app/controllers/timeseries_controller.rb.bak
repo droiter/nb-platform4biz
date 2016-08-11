@@ -1,0 +1,4 @@
+class TimeseriesController < ApplicationController
+  def index
+  end
+end
