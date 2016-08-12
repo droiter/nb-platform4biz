@@ -1,6 +1,5 @@
 class CreateCalendars < ActiveRecord::Migration
   def change
-    drop_table :calendars
     create_table :calendars do |t|
       t.string :type
       t.date :from
