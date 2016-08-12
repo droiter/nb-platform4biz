@@ -26,11 +26,13 @@ class HomeController < ApplicationController
 		#======= Variable =======
 
 		category_list 			= []
+		revenue_list				= []
 		direct_list					= []
 		overhead_list				= []
 		sga_list						= []
 		other_list					= []
 		netincome_list			= []
+		count	= 0
 
 
 		#======= If logged in =======
@@ -47,17 +49,36 @@ class HomeController < ApplicationController
 
 			@organizations.each do |organization|
 				category_list.push(organization.name)
-				direct_list.push(1000)
-				overhead_list.push(1000)
-				sga_list.push(1000)
-				other_list.push(1000)
-				netincome_list.push(1000)
+
+				revenue = 4000 - count*600
+				direct = 1000 - count*150
+				overhead = 800 - count*80
+				sga = 600 - count*40
+				other = 300 - count*50
+
+				netincome = revenue - direct - overhead - sga - other
+
+				revenue_list.push(revenue)
+				direct_list.push(direct)
+				overhead_list.push(overhead)
+				sga_list.push(sga)
+				other_list.push(other)
+				netincome_list.push(netincome)
+				count += 1
 			end
 			
 
-			#======= Prepare Chart =======
+			#======= Prepare Revenue Chart =======
 
-			set_chart(
+			set_revenue_chart(
+				category_list,
+				revenue_list,
+				netincome_list
+			)
+
+			#======= Prepare Cost Chart =======
+
+			set_cost_chart(
 				category_list,
 				direct_list,
 				overhead_list,
@@ -76,7 +97,28 @@ class HomeController < ApplicationController
 
 	private
 
-	def set_chart(
+	def set_revenue_chart(
+		category_list,
+		revenue_list,
+		netincome_list
+	)
+
+		@revenue_chart = LazyHighCharts::HighChart.new('graph') do |f|
+			f.chart(type: 'column')
+			f.title(text: 'Comparison in Revenue and Net Income`')
+			f.subtitle(text: 'Period: xxx')
+			f.xAxis(categories: category_list)
+			f.yAxis([
+				{title: {text: 'Revenue [USD]'}},
+				{title: {text: 'Net Income [USD]'}, opposite: true}
+			])
+      f.legend(:align => 'right', :verticalAlign => 'middle', :layout => 'vertical')
+			f.series(name: 'Revenue [USD]', yAxis: 0, data: revenue_list)
+			f.series(name: 'Net Income [USD]', yAxis: 1, data: netincome_list)
+		end
+	end
+
+	def set_cost_chart(
 		category_list, 
 		direct_list, 
 		overhead_list, 
@@ -85,22 +127,24 @@ class HomeController < ApplicationController
 		netincome_list
 	)
 
-		@chart = LazyHighCharts::HighChart.new('graph') do |f|
-        f.title(:text => "Financial Performance")
-        f.xAxis(:categories => category_list)
+		@cost_chart = LazyHighCharts::HighChart.new('graph') do |f|
+        f.chart({defaultSeriesType: "column"})
+        f.title(text: "Cost Structure")
+				f.subtitle(text: 'Period: xxx')
+        f.xAxis(categories: category_list)
+        f.yAxis([
+          {title: {text: "Percentage [%]"} }
+        ])
+        f.legend(
+					align: 'right', 
+					verticalAlign: 'middle', 
+					layout: 'vertical'
+				)
         f.series({name: "Direct Cost [USD]", data: direct_list})
 				f.series({name: "Overhead Cost [USD]", data: overhead_list})
 				f.series({name: "SG&A Cost [USD]", data: sga_list})
 				f.series({name: "Other Cost [USD]", data: other_list})
 				f.series({name: "Net Income [USD]", data: netincome_list})
-        f.yAxis [
-          {:title => {:text => "Revenue [USD]", :margin => 70} }
-        ]
-
-        f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical')
-        f.chart(
-					{defaultSeriesType: "column"}
-				)
 				f.tooltip(
 					{
 						headerFormat: '<b>{point.x}</b><br/>',
@@ -110,7 +154,7 @@ class HomeController < ApplicationController
 				f.plot_options(
 					{column: 
 						{
-							stacking: 'normal', 
+							stacking: 'percent', 
 							depth: 40, 
 							dataLabels: {
 								enabled: true,

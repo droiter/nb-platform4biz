@@ -11,8 +11,8 @@ class ComparisonController < ApplicationController
 		#======= Prepare comp_chart =======
 
 		target = [[50,50]]
-		public_list = [[35,60],[45,55]]
-		private_list = [[60,35], [80, 70]]
+		public_list = [[35,60],[45,55], [47, 63]]
+		private_list = [[60,35], [80, 70], [45, 42]]
 
 		set_comp_chart(
 			target,
@@ -44,9 +44,26 @@ class ComparisonController < ApplicationController
 				align: 'right',
 				verticalAlign: 'middle'
 			)
-			f.series({name: 'Target', data: target})
-			f.series({name: 'Public Companies', data: public_list})
-			f.series({name: 'Private Companies', data: private_list})
+			f.plotOptions(
+				scatter: {
+					marker: {radius: 5}
+				}
+			)
+			f.series(
+				name: 'Target', 
+				color: 'rgb(255, 0, 0)',
+				data: target
+			)
+			f.series(
+				name: 'Public Companies', 
+				color: 'rgba(0,255,0,.5)',
+				data: public_list
+			)
+			f.series(
+				name: 'Private Companies', 
+				color: 'rgba(0,0, 255, .5)',
+				data: private_list
+			)
 		end
 	end
 end
