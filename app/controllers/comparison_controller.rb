@@ -41,8 +41,7 @@ class ComparisonController < ApplicationController
 			f.yAxis(title: {text: 'ROE'})
 			f.legend(
 				layout: 'vertical',
-				align: 'right',
-				verticalAlign: 'middle'
+				verticalAlign: 'bottom'
 			)
 			f.plotOptions(
 				scatter: {

@@ -27,4 +27,20 @@ a.btn:visited{
 	color: white;
 }
 
+.highcharts-container{
+  border-style: solid;
+  border-width: 2px;
+  border-color: #888888;
+  box-shadow: 5px 5px grey;
+  margin: 10px 0px 30px 0px;
+}
 
+.tab{
+	border-style: solid;
+	border-width: 2px;
+	border-color: #888888;
+	box-shadow: 5px 5px grey;
+	padding: 40px;
+	border-radius: 15px;
+	margin: 10px 0px 30px 0px;
+}

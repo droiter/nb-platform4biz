@@ -1,5 +1,22 @@
 <h2><i class='glyphicon glyphicon-stats'> Time-Series Analysis</i></h2>
 <%= link_to 'Go Back', root_path, class: 'btn btn-primary' %>
+
+<div>
+<div class='col-md-6'>
 <%= high_chart('time_chart_1', @time_chart) %>
+</div>
+
+<div class='col-md-6'>
 <%= high_chart('time_chart_2', @time_chart) %>
+</div>
+</div>
+
+<div>
+<div class='col-md-6'>
 <%= high_chart('time_chart_3', @time_chart) %>
+</div>
+
+<div class='col-md-6'>
+<%= high_chart('time_chart_4', @time_chart) %>
+</div>
+</div>

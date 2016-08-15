@@ -1,39 +1,53 @@
+<h2><i class='glyphicon glyphicon-info-sign'> Show Assignment</i></h2>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @assignment.user_id %>
-</p>
+<div class='tab'>
 
-<p>
-  <strong>Role:</strong>
-  <%= @assignment.role_id %>
-</p>
+<table class='table table-hover'>
+	<caption>Assignment Information</caption>
 
-<p>
-  <strong>Organization:</strong>
-  <%= @assignment.organization_id %>
-</p>
+	<tr>
+		<th>KEY</th>
+		<th>VALUE</th>
+	</tr>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @assignment.start_date %>
-</p>
+	<tr>
+		<td>User</td>
+		<td><%= @assignment.user_id %></td>
+	</tr>
 
-<p>
-  <strong>End date:</strong>
-  <%= @assignment.end_date %>
-</p>
+	<tr>
+		<td>Role</td>
+		<td><%= @assignment.role_id %></td>
+	</tr>
 
-<p>
-  <strong>Status:</strong>
-  <%= @assignment.status.name %>
-</p>
+	<tr>
+		<td>Organization</td>
+		<td><%= @assignment.organization_id %></td>
+	</tr>
+	
+	<tr>
+		<td>Start Date</td>
+		<td><%= @assignment.start_date %></td>
+	</tr>
 
-<p>
-  <strong>Description:</strong>
-  <%= @assignment.description %>
-</p>
+	<tr>
+		<td>End Date</td>
+		<td><%= @assignment.end_date %></td>
+	</tr>
+
+	<tr>
+		<td>Status</td>
+		<td><%= @assignment.status.name %></td>
+	</tr>
+
+	<tr>
+		<td>Description</td>
+		<td><%= @assignment.description %></td>
+	</tr>
+</table>
+
+</div>
 
 <%= link_to 'Edit', edit_assignment_path(@assignment) %> |
 <%= link_to 'Back', assignments_path %>

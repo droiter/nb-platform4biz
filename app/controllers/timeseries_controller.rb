@@ -41,8 +41,7 @@ class TimeseriesController < ApplicationController
 			f.yAxis(title: {text: 'Financial Ratio'})
 			f.legend(
 				layout: 'vertical',
-				align: 'right',
-				verticalAlign: 'middle'
+				verticalAlign: 'bottom'
 			)
 			f.series(
 				name: 'DLSI',

@@ -2,6 +2,8 @@
 
 <p id="notice"><%= notice %></p>
 
+<div class='tab'>
+
 <table class="table table-hover">
 	<caption>Role Information</caption>
 
@@ -25,6 +27,8 @@
 		<td><%= @role.status.name %></td>
 	</tr>
 </table>
+
+</div>
 
 <%= link_to 'Edit', edit_role_path(@role) %> |
 <%= link_to 'Back', roles_path %>

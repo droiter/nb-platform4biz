@@ -1,3 +1,5 @@
+<div class='tab'>
+
 <%= form_for(@statement) do |f| %>
   <% if @statement.errors.any? %>
     <div id="error_explanation">
@@ -42,3 +44,5 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+</div>

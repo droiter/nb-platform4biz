@@ -1,6 +1,62 @@
 <h2><i class='glyphicon glyphicon-stats'> Comparison Analysis</i></h2>
 <%= link_to 'Go Back', root_path, class: 'btn btn-primary' %>
-<%= high_chart('comp_chart', @comp_chart) %>
-<%= high_chart('comp_chart_1', @comp_chart) %>
-<%= high_chart('comp_chart_2', @comp_chart) %>
-<%= high_chart('comp_chart_3', @comp_chart) %>
+
+<h3>Liquidity Ratio</h3>
+<div>
+<div class='col-md-4'>
+<%= high_chart('liquid_chart_1', @comp_chart) %>
+</div>
+
+<div class='col-md-4'>
+<%= high_chart('liquid_chart_2', @comp_chart) %>
+</div>
+
+<div class='col-md-4'>
+<%= high_chart('liquid_chart_3', @comp_chart) %>
+</div>
+</div>
+
+<h3>Solvency Ratio</h3>
+<div>
+<div class='col-md-4'>
+<%= high_chart('solve_chart_1', @comp_chart) %>
+</div>
+
+<div class='col-md-4'>
+<%= high_chart('solve_chart_2', @comp_chart) %>
+</div>
+
+<div class='col-md-4'>
+<%= high_chart('solve_chart_3', @comp_chart) %>
+</div>
+</div>
+
+<h3>Profitability Ratio</h3>
+<div>
+<div class='col-md-4'>
+<%= high_chart('prof_chart_1', @comp_chart) %>
+</div>
+
+<div class='col-md-4'>
+<%= high_chart('prof_chart_2', @comp_chart) %>
+</div>
+
+<div class='col-md-4'>
+<%= high_chart('prof_chart_3', @comp_chart) %>
+</div>
+</div>
+
+<h3>Activity Ratio</h3>
+<div>
+<div class='col-md-4'>
+<%= high_chart('act_chart_1', @comp_chart) %>
+</div>
+
+<div class='col-md-4'>
+<%= high_chart('act_chart_2', @comp_chart) %>
+</div>
+
+<div class='col-md-4'>
+<%= high_chart('act_chart_3', @comp_chart) %>
+</div>
+</div>

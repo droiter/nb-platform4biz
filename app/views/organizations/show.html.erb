@@ -2,6 +2,8 @@
 
 <p id="notice"><%= notice %></p>
 
+<div class='tab'>
+
   <table class="table table-hover">
 
     <tr>
@@ -34,6 +36,8 @@
 			<td><%= @organization.status.name %></td>
 		</tr>	
   </table>
+
+</div>
 
 <%= link_to 'Edit', edit_organization_path(@organization) %> |
 <%= link_to 'Back', organizations_path %>

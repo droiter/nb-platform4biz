@@ -2,6 +2,8 @@
 
 <p id="notice"><%= notice %></p>
 
+<div class='tab'>
+
 <table class="table table-hover">
 	<caption>Financial Statements Information</caption>
 
@@ -25,6 +27,8 @@
 		<td><%= @statement.updated_at %></td>
 	</tr>
 </table>
+
+</div>
 
 <%= link_to 'Edit', edit_statement_path(@statement) %> |
 <%= link_to 'Back', statements_path %>

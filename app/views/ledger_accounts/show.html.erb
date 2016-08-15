@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<div class='tab'>
+
 <p>
   <strong>Ledger:</strong>
   <%= @ledger_account.ledger_id %>
@@ -9,6 +11,8 @@
   <strong>Account:</strong>
   <%= @ledger_account.account_id %>
 </p>
+
+</div>
 
 <%= link_to 'Edit', edit_ledger_account_path(@ledger_account) %> |
 <%= link_to 'Back', ledger_accounts_path %>

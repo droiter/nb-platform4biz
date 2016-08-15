@@ -2,6 +2,8 @@
 
 <p id="notice"><%= notice %></p>
 
+<div class='tab'>
+
 <table class="table table-hover">
 	<caption>Event Information</caption>
 
@@ -45,6 +47,8 @@
 		<td><%= @event.user.name %></td>
 	</tr>
 </table>
+
+</div>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

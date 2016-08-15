@@ -1,24 +1,35 @@
 <p id="notice"><%= notice %></p>
 
+<div id='dashboard'>
 <h2><i class="glyphicon glyphicon-list-alt"> Dashboard</i></h2>
 
+<div class='col-md-6 chart'>
 <%= high_chart('revenue_chart', @revenue_chart) %>
+</div>
+
+<div class='col-md-6 chart'>
 <%= high_chart('cost_chart', @cost_chart) %>
+</div>
 
 <%= @response %>
 <%= @message %>
 <%= @code %>
 <%= @result %>
 
+</div>
 
+<div id='overall'>
 <h3>Overall Information</h3>
 
+<div class='tab'>
+<%= form_tag(home_index_path) do |f| %>
 <table class="table table-hover">
   <thead>
     <tr>
 			<th>ORGANIATION NAME</th>
 			<th>DESCRIPTION</th>
 			<th>STATUS</th>
+			<th width="150">FINANCIAL STATEMENTS</th>
 			<th>M-SCORE / Z-SCORE</th>
 			<th>MESSAGE</th>
 			<th width="150">ACTION</th>
@@ -31,18 +42,28 @@
 				<td><%= organization.name %></td>
 				<td><%= organization.description %></td>
 				<td></td>
-				<td>1.0 / 1.0</td>
-				<td>Fine</td>
+        <td><%= select_tag 'organization', options_for_select(['2016', '2015', '2014']) %>
+        <%= select_tag 'organization', options_for_select(['Q1', 'Q2', 'Q3', 'Q4']) %>
+        <br><br>
+        <%= submit_tag "Download", class: 'btn btn-primary btn-block' %></td>
+			<td>1.0 / 1.0</td>
+        <td>Fine</td>
         <td><%= link_to 'Show', organization, class: 'btn btn-primary btn-block' %> 
 				<%= link_to 'Comparison', comparison_index_path(org: organization), class: 'btn btn-primary btn-block' %> 
 				<%= link_to 'Time-series', timeseries_index_path(org: organization), class: 'btn btn-primary btn-block' %>'
+				</td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<% end %>
 
+</div>
 
+<div id='fin_ratio'>
 <h3>Financial Ratio</h3>
+
+<div class='tab'>
 
 <ul class="nav nav-tabs">
   <li class="active"><a href="#">Liquidity Ratio</a></li>
@@ -166,31 +187,6 @@
 </table>
 </div>
 
-
-<h3>Financial Statements</h3>
-
-<%= form_tag(home_index_path) do |f| %>
-<table class="table table-hover">
-	<thead>
-		<tr>
-			<th>ORGANIZATION NAME</th>
-			<th>FISCAL YEAR</th>
-			<th>QUARTER</th>
-			<th width="150">ACTION</th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<% @organizations.each do |organization| %>
-			<tr>
-				<td><%= organization.name %></td>
-				<td><%= select_tag 'organization', options_for_select(['2016', '2015', '2014']) %></td>
-				<td><%= select_tag 'organization', options_for_select(['Q1', 'Q2', 'Q3', 'Q4']) %></td>
-				<td><%= submit_tag "Download", class: 'btn btn-primary btn-block' %></td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
-
-<% end %>
+</div>
+</div>
 

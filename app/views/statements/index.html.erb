@@ -2,10 +2,13 @@
 
 <p id="notice"><%= notice %></p>
 
+
 <%= form_tag(statements_path, method: :get) do |f| %>
 	<%= file_field_tag 'filename' %>
 	<%= submit_tag "Upload File" %>
 <% end %>
+
+<div class='tab'>
 
 <table class="table table-hover">
   <thead>
@@ -66,3 +69,5 @@
     <% end %>
   </tbody>
 </table>
+
+</div>
