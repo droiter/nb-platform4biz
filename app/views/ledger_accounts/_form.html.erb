@@ -13,14 +13,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :ledger_id %><br>
-    <%= f.number_field :ledger_id %>
-  </div>
-  <div class="field">
-    <%= f.label :account_id %><br>
-    <%= f.number_field :account_id %>
-  </div>
+	<table class='table table-hover'>
+		<tr>
+			<th>KEY</th>
+			<th>VALUE</th>
+		</tr>
+
+		<tr>
+			<td>Account</td>
+			<td><%= f.select(:ledger_id, @ledgers.map{|t|[t.account, t.id]}) %></td>
+		</tr>
+
+		<tr>
+			<td>Mapping</td>
+			<td><%= f.select(:account_id, @accounts.map{|t|[t.name,t.id]}) %></td>
+		</tr>
+	</table>
+
   <div class="actions">
     <%= f.submit %>
   </div>

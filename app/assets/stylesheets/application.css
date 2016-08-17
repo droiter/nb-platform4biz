@@ -44,3 +44,30 @@ a.btn:visited{
 	border-radius: 15px;
 	margin: 10px 0px 30px 0px;
 }
+
+.tab-hidden{
+	display: none;
+}
+
+.box{
+	border-style: solid;
+	border-width: 2px;
+	border-color: #888888;
+	box-shadow: 5px 5px grey;
+	padding: 0px;
+	margin: 10px;
+}
+
+.box-header{
+	background: #4444ff;
+	text-align: center;
+	color: #ffffff;
+	font-weight: bold;
+	margin: 0px;
+	padding: 10px;
+}
+
+.box-content{
+	margin: 0px;
+	padding: 10px;
+}

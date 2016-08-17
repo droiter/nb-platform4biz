@@ -1,5 +1,8 @@
 class LedgerAccountsController < ApplicationController
+	before_action :login_required
   before_action :set_ledger_account, only: [:show, :edit, :update, :destroy]
+	before_action :set_form, only: [:new, :edit]
+
 
   # GET /ledger_accounts
   # GET /ledger_accounts.json
@@ -66,6 +69,11 @@ class LedgerAccountsController < ApplicationController
     def set_ledger_account
       @ledger_account = LedgerAccount.find(params[:id])
     end
+
+		def set_form
+			@ledgers = Ledger.all
+			@accounts = Account.all
+		end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ledger_account_params

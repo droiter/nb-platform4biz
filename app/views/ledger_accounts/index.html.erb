@@ -1,15 +1,188 @@
-<h2><i class="glyphicon glyphicon-list-alt"> Mapping Ledgers</i></h2>
+<h2><i class="glyphicon glyphicon-list-alt"> Data Mapping</i></h2>
 
 <p id="notice"><%= notice %></p>
 
 
-<div class='tab'>
+<div class='row'>
+
+<div class='col-md-4'>
+<div class='box'>
+<div class='box-header'>ASSET</div>
+<div class='box-content'>
+<table class='table table-hover'>
+	<thead>
+		<tr>
+		<th>Account Name</th>
+		<th>Mapping</th>
+		<th>Action</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr>
+			<td>Cash</td>
+			<td>CASH</td>
+      <td><a class="btn btn-primary btn-block">Show</a>
+			<a class="btn btn-primary btn-block">Edit</a>
+			<a class="btn btn-primary btn-block">Destroy</a>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Purchase</td>
+			<td>INVENTORY</td>
+			<td><a class="btn btn-primary btn-block">Show</a>
+      <a class="btn btn-primary btn-block">Edit</a>
+      <a class="btn btn-primary btn-block">Destroy</a>
+      </td>
+		</tr>
+
+		<tr>
+			<td>Inventory</td>
+			<td>INVENTORY</td>
+			<td><a class="btn btn-primary btn-block">Show</a>
+      <a class="btn btn-primary btn-block">Edit</a>
+      <a class="btn btn-primary btn-block">Destroy</a>
+      </td>
+		</tr>
+	</tbody>
+</table>
+<%= link_to 'New Ledger account', new_ledger_account_path %>
+</div>
+</div>
+</div>
+
+<div class='col-md-4'>
+<div class='box'>
+<div class='box-header'>LIABILITY</div>
+<div class='box-content'>
+<table class='table table-hover'>
+  <thead>
+    <tr>
+    <th>Account Name</th>
+    <th>Mapping</th>
+		<th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>xxx</td>
+      <td>xxx</td>
+			<td><a class="btn btn-primary btn-block">Show</a>
+      <a class="btn btn-primary btn-block">Edit</a>
+      <a class="btn btn-primary btn-block">Destroy</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<%= link_to 'New Ledger account', new_ledger_account_path %>
+</div>
+</div>
+</div>
+
+<div class='col-md-4'>
+<div class='box'>
+<div class='box-header'>EQUITY</div>
+<div class='box-content'>
+<table class='table table-hover'>
+  <thead>
+    <tr>
+    <th>Account Name</th>
+    <th>Mapping</th>
+		<th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>xxx</td>
+      <td>xxx</td>
+			<td><a class="btn btn-primary btn-block">Show</a>
+      <a class="btn btn-primary btn-block">Edit</a>
+      <a class="btn btn-primary btn-block">Destroy</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<%= link_to 'New Ledger account', new_ledger_account_path %>
+</div>
+</div>
+</div>
+
+</div>
+
+
+<div class='row'>
+
+<div class='col-md-6'>
+<div class='box'>
+<div class='box-header'>EXPENSE</div>
+<div class='box-content'>
+<table class='table table-hover'>
+  <thead>
+    <tr>
+    <th>Account Name</th>
+    <th>Mapping</th>
+		<th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>xxx</td>
+      <td>xxx</td>
+			<td><a class="btn btn-primary btn-block">Show</a>
+      <a class="btn btn-primary btn-block">Edit</a>
+      <a class="btn btn-primary btn-block">Destroy</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<%= link_to 'New Ledger account', new_ledger_account_path %>
+</div>
+</div>
+</div>
+
+<div class='col-md-6'>
+<div class='box'>
+<div class='box-header'>REVENUE</div>
+<div class='box-content'>
+<table class='table table-hover'>
+  <thead>
+    <tr>
+    <th>Account Name</th>
+    <th>Mapping</th>
+		<th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>xxx</td>
+      <td>xxx</td>
+			<td><a class="btn btn-primary btn-block">Show</a>
+      <a class="btn btn-primary btn-block">Edit</a>
+      <a class="btn btn-primary btn-block">Destroy</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<%= link_to 'New Ledger account', new_ledger_account_path %>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class='tab-hidden'>
 
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Ledger</th>
-      <th>Account</th>
+			<th>Account Type</th>
+      <th>Account Name</th>
+      <th>Mapping</th>
 			<th width="150"></th>
     </tr>
   </thead>
@@ -17,10 +190,11 @@
   <tbody>
     <% @ledger_accounts.each do |ledger_account| %>
       <tr>
-        <td><%= ledger_account.ledger_id %></td>
-        <td><%= ledger_account.account_id %></td>
-        <td><%= link_to 'Show', ledger_account, class: "btn btn-primary btn-block" %></td>
-        <%= link_to 'Edit', edit_ledger_account_path(ledger_account), class: "btn btn-primary btn-block" %></td>
+				<td><%= ledger_account.ledger.ledger_type.name %></td>
+        <td><%= ledger_account.ledger.account %></td>
+        <td><%= ledger_account.account.name %></td>
+        <td><%= link_to 'Show', ledger_account, class: "btn btn-primary btn-block" %>
+        <%= link_to 'Edit', edit_ledger_account_path(ledger_account), class: "btn btn-primary btn-block" %>
         <%= link_to 'Destroy', ledger_account, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-block" %></td>
       </tr>
     <% end %>
@@ -29,4 +203,3 @@
 
 </div>
 
-<%= link_to 'New Ledger account', new_ledger_account_path %>

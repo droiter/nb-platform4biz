@@ -159,3 +159,28 @@ LedgerType.create(
   name: 'revenue',
   created_at: DateTime.now,
   updated_at: DateTime.now)
+
+Account.create(
+	id: 0,
+	code: '10000',
+	name: 'Asset',
+	created_at: DateTime.now,
+	updated_at: DateTime.now)
+
+Account.create(
+  code: '10000',
+  name: 'Asset',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+Account.create(
+  code: '20000',
+  name: 'Liability',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+Account.create(
+  code: '30000',
+  name: 'Equity',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
