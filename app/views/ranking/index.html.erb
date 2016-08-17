@@ -1,0 +1,57 @@
+<h2><i class='glyphicon glyphicon-list-alt'> Ranking</i></h2>
+
+<div class='tab'>
+
+<table class='table table-hover'>
+	<thead>
+		<tr>
+			<th>RANKING</th>
+			<th>ORGANIZATION NAME</th>
+			<th>DESCRIPTION</th>
+			<th>REVENUE</th>
+			<th>NET INCOME</th>
+			<th>M-SCORE</th>
+			<th>Z-SCORE</th>
+			<th width='150'>ACTION</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% ranking = 1 %>
+		<% @organizations.each do |organization| %>
+			<% revenue = 4000 - (ranking-1) * 600 %>
+			<% direct = 1000 - (ranking-1)*150 %>
+			<% overhead = 800 - (ranking-1)*80 %>
+			<% sga = 600 - (ranking-1)*40 %>
+			<% other = 300 - (ranking-1)*50 %>
+			<% netincome = revenue - direct - overhead - sga - other %>
+			<% if organization.assignments.where(user_id: session[:user_id]).size > 0 %>
+			<tr class='success'>
+				<td><%= ranking %></td>
+				<td><%= organization.name %></td>
+				<td><%= organization.description %></td>
+				<td><%= revenue %></td>
+				<td><%= netincome %></td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td><%= link_to 'Comparison', comparison_index_path(org: organization), class: 'btn btn-primary btn-block' %>
+				<%= link_to 'Time-series', timeseries_index_path(org: organization), class: 'btn btn-primary btn-block' %>
+				</td>
+			</tr>
+			<% else %>
+			<tr>
+				<td><%= ranking %></td>
+				<td>ANONYMOUS</td>
+				<td>-</td>
+				<td><%= revenue %></td>
+				<td><%= netincome %></td>
+				<td>1.0</td>
+				<td>1.0</td>
+				<td>-</td>
+			</tr>
+			<% end %>
+		<% ranking = ranking + 1 %>
+		<% end %>
+	</tbody>
+</table>
+</div>

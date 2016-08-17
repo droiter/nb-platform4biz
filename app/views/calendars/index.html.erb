@@ -34,4 +34,6 @@
 
 </div>
 
+<% if @current_user.user_type.name == 'Super User' %>
 <%= link_to 'New Calendar', new_calendar_path %>
+<% end %>

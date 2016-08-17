@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'ranking/index'
+
+  get 'search/index'
+
+  get 'ranking/index'
+
   get 'timeseries/index'
 
   get 'comparison/index'

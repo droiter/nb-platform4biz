@@ -1,4 +1,5 @@
 class CalendarsController < ApplicationController
+  before_action :login_required
   before_action :set_calendar, only: [:show, :edit, :update, :destroy]
 
   # GET /calendars

@@ -33,3 +33,7 @@
 </table>
 
 </div>
+
+<% if @current_user.user_type.name == 'Super User' %>
+<%= link_to 'New User', new_user_path %>
+<% end %>

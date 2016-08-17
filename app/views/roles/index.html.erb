@@ -30,4 +30,6 @@
 
 </div>
 
+<% if @current_user.user_type.name == 'Super User' %>
 <%= link_to 'New Role', new_role_path %>
+<% end %>
