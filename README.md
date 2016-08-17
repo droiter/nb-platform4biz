@@ -9,7 +9,7 @@
 
 
 This is an open source project for new business platform.
-You can see the demo from https://www.youtube.com/watch?v=s3LiMk8aCRw
+You can see the demo from https://youtu.be/GFaokaxOKWY
 
 
 ## Prerequisite
