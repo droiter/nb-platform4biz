@@ -6,13 +6,30 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+#======= Status =======
+
 Status.destroy_all
 Status.create(id: 0, name: 'INACTIVE')
 Status.create(id: 1, name: 'ACTIVE')
 
+
+#======= User Type =======
+
 UserType.destroy_all
 UserType.create(id: 0, name: 'Super User')
 UserType.create(id: 1, name: 'Regular User')
+
+
+#======= Role =======
+
+Role.destroy_all
+Role.create(id: 0, name: 'Entrepreneur', status_id: 1)
+Role.create(id: 1, name: 'Employee', status_id: 1)
+Role.create(id: 2, name: 'Stakeholders', status_id: 1)
+
+
+#======= Statement Type =======
 
 StatementType.destroy_all
 StatementType.create(
@@ -129,6 +146,8 @@ Calendar.create(
   updated_at: DateTime.now)
 
 
+#======= Ledger Type =======
+
 LedgerType.destroy_all
 LedgerType.create(
 	id: 0,
@@ -160,27 +179,152 @@ LedgerType.create(
   created_at: DateTime.now,
   updated_at: DateTime.now)
 
+
+#======= Account =======
+
+#----- Asset -----
+
 Account.create(
-	id: 0,
 	code: '10000',
-	name: 'Asset',
+	name: 'Assets',
 	created_at: DateTime.now,
 	updated_at: DateTime.now)
 
 Account.create(
-  code: '10000',
-  name: 'Asset',
+  code: '11000',
+  name: 'Current Assets',
   created_at: DateTime.now,
   updated_at: DateTime.now)
 
 Account.create(
-  code: '20000',
-  name: 'Liability',
+  code: '12000',
+  name: 'Non-current Assets',
   created_at: DateTime.now,
   updated_at: DateTime.now)
+
+Account.create(
+  code: '13000',
+  name: 'Deferred Assets',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+
+#----- Liability -----
+
+Account.create(
+  code: '20000',
+  name: 'Liabilities',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+Account.create(
+  code: '21000',
+  name: 'Current Liabilities',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+Account.create(
+  code: '22000',
+  name: 'Non-current Liabilities',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+Account.create(
+  code: '23000',
+  name: 'Reserves under special laws',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+
+#----- Equity -----
 
 Account.create(
   code: '30000',
   name: 'Equity',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+
+#----- Expense -----
+
+Account.create(
+  code: '40000',
+  name: 'Expenses',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+Account.create(
+  code: '41000',
+  name: 'Cost of Goods Sold',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+Account.create(
+  code: '42000',
+  name: 'Operating Expenses',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+Account.create(
+  code: '42100',
+  name: 'Selling Expenses',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+Account.create(
+  code: '42200',
+  name: 'Administrative Expenses',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+Account.create(
+  code: '43000',
+  name: 'Non-Operating Expenses',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+
+#----- Revenue -----
+
+Account.create(
+  code: '50000',
+  name: 'Revenue',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+Account.create(
+  code: '51000',
+  name: 'Sales Revenue',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+Account.create(
+  code: '52000',
+  name: 'Non-Operating Revenues',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+
+#======= Dummy Data =======
+
+#----- Organization -----
+
+Organization.destroy_all
+
+Organization.create(
+	name: 'Dummy1',
+	status_id: 1,
+	created_at: DateTime.now,
+	updated_at: DateTime.now)
+
+Organization.create(
+	name: 'Dummy2',
+	status_id: 1,
+	created_at: DateTime.now,
+	updated_at: DateTime.now)
+
+Organization.create(
+  name: 'Dummy3',
+  status_id: 1,
   created_at: DateTime.now,
   updated_at: DateTime.now)

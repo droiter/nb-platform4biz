@@ -112,9 +112,20 @@ class HomeController < ApplicationController
 				{title: {text: 'Revenue [USD]'}},
 				{title: {text: 'Net Income [USD]'}, opposite: true}
 			])
-      f.legend(:align => 'right', :verticalAlign => 'middle', :layout => 'vertical')
-			f.series(name: 'Revenue [USD]', yAxis: 0, data: revenue_list)
-			f.series(name: 'Net Income [USD]', yAxis: 1, data: netincome_list)
+      f.legend(
+				verticalAlign: 'bottom', 
+				layout: 'vertical'
+			)
+			f.series(
+				name: 'Revenue [USD]', 
+				yAxis: 0, 
+				data: revenue_list
+			)
+			f.series(
+				name: 'Net Income [USD]', 
+				yAxis: 1, 
+				data: netincome_list
+			)
 		end
 	end
 
@@ -136,8 +147,7 @@ class HomeController < ApplicationController
           {title: {text: "Percentage [%]"} }
         ])
         f.legend(
-					align: 'right', 
-					verticalAlign: 'middle', 
+					verticalAlign: 'bottom', 
 					layout: 'vertical'
 				)
         f.series({name: "Direct Cost [USD]", data: direct_list})

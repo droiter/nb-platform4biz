@@ -1,27 +1,13 @@
 Rails.application.routes.draw do
 
-  get 'ranking/index'
 
-  get 'search/index'
-
-  get 'ranking/index'
-
-  get 'timeseries/index'
-
-  get 'comparison/index'
-
-  resources :ledger_types
-  resources :statement_types
-  resources :calendars
-  resources :calendars
-  resources :statements
-  resources :ledger_accounts
   #======= Home =======
 
   root 'home#index'
   get 'home/index'
-  get 'members/index', :as => :members
   get 'dashboard/index', :as => :dashboard
+	get 'timeseries/index'
+  get 'comparison/index'
 
 
   #======= Callback =======
@@ -33,25 +19,49 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy', :as => :logout
 
 
-  #======= Main Menu =======
+	#======= Ranking =======
 
-  resources :assignments
-  resources :roles
-  resources :organizations
-  resources :events
-  resources :users do
+  get 'search/index'
+  get 'ranking/index'
+
+
+	#======= Members	=======
+
+	get 'members/index', :as => :members
+
+	resources :users do
     resources :organizations
     resources :roles
     resources :events
   end
 
 
-  #======= Master Maintenance =======
+	#======= Events	=======
 
+	resources :events
+
+
+	#======= Financial Data =======
+
+  resources :statements
+  resources :ledger_accounts
   resources :accounts
   resources :ledgers
+
+
+	#======= Settings	=======
+
+  resources :assignments
+  resources :roles
+  resources :organizations
+	resources :calendars
+
+  #======= Other Master Maintenance =======
+
   resources :user_types
   resources :statuses
+	resources :ledger_types
+  resources :statement_types
 
 
   # The priority is based upon order of creation: first created -> highest priority.
