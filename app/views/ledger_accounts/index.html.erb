@@ -19,35 +19,18 @@
 	</thead>
 
 	<tbody>
+		<% @asset_list.each do |ledger_account| %>
 		<tr>
-			<td>Cash</td>
-			<td>CASH</td>
-      <td><a class="btn btn-primary btn-block">Show</a>
-			<a class="btn btn-primary btn-block">Edit</a>
-			<a class="btn btn-primary btn-block">Destroy</a>
-			</td>
+			<td><%= ledger_account.ledger.account %></td>
+			<td><%= ledger_account.account.name %></td>
+      <td><%= link_to 'Show', ledger_account, class: "btn btn-primary btn-block" %>
+			<%= link_to 'Edit', edit_ledger_account_path(ledger_account, account_type: 1), class: "btn btn-primary btn-block" %>
+			<%= link_to 'Destroy', ledger_account, method: :delete, data: {confirm: 'Are you sure?' },  class: "btn btn-primary btn-block" %></td>
 		</tr>
-
-		<tr>
-			<td>Purchase</td>
-			<td>INVENTORY</td>
-			<td><a class="btn btn-primary btn-block">Show</a>
-      <a class="btn btn-primary btn-block">Edit</a>
-      <a class="btn btn-primary btn-block">Destroy</a>
-      </td>
-		</tr>
-
-		<tr>
-			<td>Inventory</td>
-			<td>INVENTORY</td>
-			<td><a class="btn btn-primary btn-block">Show</a>
-      <a class="btn btn-primary btn-block">Edit</a>
-      <a class="btn btn-primary btn-block">Destroy</a>
-      </td>
-		</tr>
+		<% end %>
 	</tbody>
 </table>
-<%= link_to 'New Ledger account', new_ledger_account_path %>
+<%= link_to 'New Ledger account', new_ledger_account_path(account_type: 1) %>
 </div>
 </div>
 </div>
@@ -66,17 +49,18 @@
   </thead>
 
   <tbody>
+		<% @liab_list.each do |ledger_account| %>
     <tr>
-      <td>xxx</td>
-      <td>xxx</td>
-			<td><a class="btn btn-primary btn-block">Show</a>
-      <a class="btn btn-primary btn-block">Edit</a>
-      <a class="btn btn-primary btn-block">Destroy</a>
-      </td>
+      <td><%= ledger_account.ledger.account %></td>
+      <td><%= ledger_account.account.name %></td>
+			<td><%= link_to 'Show', ledger_account, class: "btn btn-primary btn-block" %>
+      <%= link_to 'Edit', edit_ledger_account_path(ledger_account, account_type: 2), class: "btn btn-primary btn-block" %>
+      <%= link_to 'Destroy', ledger_account, method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-primary btn-block" %></td>
     </tr>
+		<% end %>
   </tbody>
 </table>
-<%= link_to 'New Ledger account', new_ledger_account_path %>
+<%= link_to 'New Ledger account', new_ledger_account_path(account_type: 2) %>
 </div>
 </div>
 </div>
@@ -95,17 +79,18 @@
   </thead>
 
   <tbody>
+		<% @equity_list.each do |ledger_account| %>
     <tr>
-      <td>xxx</td>
-      <td>xxx</td>
-			<td><a class="btn btn-primary btn-block">Show</a>
-      <a class="btn btn-primary btn-block">Edit</a>
-      <a class="btn btn-primary btn-block">Destroy</a>
-      </td>
+      <td><%= ledger_account.ledger.account %></td>
+      <td><%= ledger_account.account.name %></td>
+			<td><%= link_to 'Show', ledger_account, class: "btn btn-primary btn-block" %>
+      <%= link_to 'Edit', edit_ledger_account_path(ledger_account, account_type: 3), class: "btn btn-primary btn-block" %>
+      <%= link_to 'Destroy', ledger_account, method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-primary btn-block" %></td>
     </tr>
+		<% end %>
   </tbody>
 </table>
-<%= link_to 'New Ledger account', new_ledger_account_path %>
+<%= link_to 'New Ledger account', new_ledger_account_path(account_type: 3) %>
 </div>
 </div>
 </div>
@@ -129,17 +114,18 @@
   </thead>
 
   <tbody>
+		<% @expense_list.each do |ledger_account| %>
     <tr>
-      <td>xxx</td>
-      <td>xxx</td>
-			<td><a class="btn btn-primary btn-block">Show</a>
-      <a class="btn btn-primary btn-block">Edit</a>
-      <a class="btn btn-primary btn-block">Destroy</a>
-      </td>
+      <td><%= ledger_account.ledger.account %></td>
+      <td><%= ledger_account.account.name %></td>
+			<td><%= link_to 'Show', ledger_account, class: "btn btn-primary btn-block" %>
+      <%= link_to 'Edit', edit_ledger_account_path(ledger_account, account_type: 4), class: "btn btn-primary btn-block" %>
+      <%= link_to 'Destroy', ledger_account, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-primary btn-block" %></td>
     </tr>
+		<% end %>
   </tbody>
 </table>
-<%= link_to 'New Ledger account', new_ledger_account_path %>
+<%= link_to 'New Ledger account', new_ledger_account_path(account_type: 4) %>
 </div>
 </div>
 </div>
@@ -158,48 +144,21 @@
   </thead>
 
   <tbody>
+		<% @revenue_list.each do |ledger_account| %>
     <tr>
-      <td>xxx</td>
-      <td>xxx</td>
-			<td><a class="btn btn-primary btn-block">Show</a>
-      <a class="btn btn-primary btn-block">Edit</a>
-      <a class="btn btn-primary btn-block">Destroy</a>
-      </td>
+      <td><%= ledger_account.ledger.account %></td>
+      <td><%= ledger_account.account.name %></td>
+			<td><%= link_to 'Show', ledger_account, class: "btn btn-primary btn-block" %>
+      <%= link_to 'Edit', edit_ledger_account_path(ledger_account, account_type: 5), class: "btn btn-primary btn-block" %>
+      <%= link_to 'Destroy', ledger_account, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-primary btn-block" %></td>
     </tr>
+		<% end %>
   </tbody>
 </table>
-<%= link_to 'New Ledger account', new_ledger_account_path %>
+<%= link_to 'New Ledger account', new_ledger_account_path(account_type: 5) %>
 </div>
 </div>
 </div>
-
-</div>
-
-<div class='tab-hidden'>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-			<th>Account Type</th>
-      <th>Account Name</th>
-      <th>Mapping</th>
-			<th width="150"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ledger_accounts.each do |ledger_account| %>
-      <tr>
-				<td><%= ledger_account.ledger.ledger_type.name %></td>
-        <td><%= ledger_account.ledger.account %></td>
-        <td><%= ledger_account.account.name %></td>
-        <td><%= link_to 'Show', ledger_account, class: "btn btn-primary btn-block" %>
-        <%= link_to 'Edit', edit_ledger_account_path(ledger_account), class: "btn btn-primary btn-block" %>
-        <%= link_to 'Destroy', ledger_account, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-block" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 </div>
 

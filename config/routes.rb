@@ -47,6 +47,9 @@ Rails.application.routes.draw do
   resources :ledger_accounts
   resources :accounts
   resources :ledgers
+	resources :account_types do
+		resources :accounts
+	end
 
 
 	#======= Settings	=======

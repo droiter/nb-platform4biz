@@ -14,6 +14,7 @@
   <thead>
     <tr>
       <th>TYPE</th>
+			<th>NAME</th>
       <th>CALENDAR</th>
       <th>CREATED AT</th>
       <th>UPDATED AT</th>
@@ -25,6 +26,7 @@
     <% @statements.each do |statement| %>
       <tr>
         <td><%= statement.statement_type.name %></td>
+				<td><%= statement.name %></td>
         <td><%= statement.calendar.calendar_type %></td>
         <td><%= statement.created_at %></td>
         <td><%= statement.updated_at %></td>

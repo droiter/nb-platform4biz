@@ -8,6 +8,21 @@ class LedgerAccountsController < ApplicationController
   # GET /ledger_accounts.json
   def index
     @ledger_accounts = LedgerAccount.all
+
+		asset_accounts = Account.where(account_type: 1).pluck(:id)
+		@asset_list = LedgerAccount.where('account_id IN (?)', asset_accounts)
+
+		liab_accounts = Account.where(account_type: 2).pluck(:id)
+		@liab_list = LedgerAccount.where('account_id IN (?)', liab_accounts)
+
+    equity_accounts = Account.where(account_type: 3).pluck(:id)
+    @equity_list = LedgerAccount.where('account_id IN (?)', equity_accounts)
+
+    expense_accounts = Account.where(account_type: 4).pluck(:id)
+    @expense_list = LedgerAccount.where('account_id IN (?)', expense_accounts)
+
+    revenue_accounts = Account.where(account_type: 5).pluck(:id)
+    @revenue_list = LedgerAccount.where('account_id IN (?)', revenue_accounts)
   end
 
   # GET /ledger_accounts/1
@@ -72,11 +87,11 @@ class LedgerAccountsController < ApplicationController
 
 		def set_form
 			@ledgers = Ledger.all
-			@accounts = Account.all
+			@accounts = Account.where(account_type: params[:account_type])
 		end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ledger_account_params
-      params.require(:ledger_account).permit(:ledger_id, :account_id)
+      params.require(:ledger_account).permit(:account_type, :ledger_id, :account_id)
     end
 end

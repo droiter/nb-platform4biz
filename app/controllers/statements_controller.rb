@@ -1,5 +1,6 @@
 class StatementsController < ApplicationController
   before_action :set_statement, only: [:show, :edit, :update, :destroy]
+	before_action :set_form, only: [:new, :edit]
 
   # GET /statements
   # GET /statements.json
@@ -73,8 +74,13 @@ class StatementsController < ApplicationController
       @statement = Statement.find(params[:id])
     end
 
+		def set_form
+			@statement_types = StatementType.all
+			@calendars = Calendar.all
+		end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def statement_params
-      params.require(:statement).permit(:statement_type_id, :calendar_id, :created_at, :updated_at, :id)
+      params.require(:statement).permit(:statement_type_id, :name,:calendar_id, :created_at, :updated_at, :id)
     end
 end

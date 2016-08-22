@@ -20,13 +20,13 @@
 		</tr>
 
 		<tr>
-			<td>Statement Type</td>
-			<td><%= f.number_field :statement_id %></td>
+			<td>Statement Name</td>
+			<td><%= f.select(:statement_id, @statements.map{|t|[t.name, t.id]}) %></td>
 		</tr>
 
 		<tr>
 			<td>Ledger Type</td>
-			<td><%= f.number_field :ledger_type_id %></td>
+			<td><%= f.select(:ledger_type_id, @ledger_types.map{|t|[t.name, t.id]}) %></td>
 		</tr>
 
 		<tr>

@@ -180,30 +180,71 @@ LedgerType.create(
   updated_at: DateTime.now)
 
 
+#======= Account Type =======
+
+AccountType.destroy_all
+
+AccountType.create(
+	id: 1,
+	name: 'Assets',
+	created_at: DateTime.now,
+	updated_at: DateTime.now)
+
+AccountType.create(
+  id: 2,
+  name: 'Liabilities',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+AccountType.create(
+  id: 3,
+  name: 'Equity',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+AccountType.create(
+  id: 4,
+  name: 'Expenses',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+AccountType.create(
+  id: 5,
+  name: 'Revenues',
+  created_at: DateTime.now,
+  updated_at: DateTime.now)
+
+
 #======= Account =======
+
+Account.destroy_all
 
 #----- Asset -----
 
 Account.create(
 	code: '10000',
+	account_type_id: 1,
 	name: 'Assets',
 	created_at: DateTime.now,
 	updated_at: DateTime.now)
 
 Account.create(
   code: '11000',
+	account_type_id: 1,
   name: 'Current Assets',
   created_at: DateTime.now,
   updated_at: DateTime.now)
 
 Account.create(
   code: '12000',
+	account_type_id: 1,
   name: 'Non-current Assets',
   created_at: DateTime.now,
   updated_at: DateTime.now)
 
 Account.create(
   code: '13000',
+	account_type_id: 1,
   name: 'Deferred Assets',
   created_at: DateTime.now,
   updated_at: DateTime.now)
@@ -213,24 +254,28 @@ Account.create(
 
 Account.create(
   code: '20000',
+	account_type_id: 2,
   name: 'Liabilities',
   created_at: DateTime.now,
   updated_at: DateTime.now)
 
 Account.create(
   code: '21000',
+	account_type_id: 2,
   name: 'Current Liabilities',
   created_at: DateTime.now,
   updated_at: DateTime.now)
 
 Account.create(
   code: '22000',
+	account_type_id: 2,
   name: 'Non-current Liabilities',
   created_at: DateTime.now,
   updated_at: DateTime.now)
 
 Account.create(
   code: '23000',
+	account_type_id: 2,
   name: 'Reserves under special laws',
   created_at: DateTime.now,
   updated_at: DateTime.now)
@@ -240,6 +285,7 @@ Account.create(
 
 Account.create(
   code: '30000',
+	account_type_id: 3,
   name: 'Equity',
   created_at: DateTime.now,
   updated_at: DateTime.now)
@@ -249,36 +295,42 @@ Account.create(
 
 Account.create(
   code: '40000',
+	account_type_id: 4,
   name: 'Expenses',
   created_at: DateTime.now,
   updated_at: DateTime.now)
 
 Account.create(
   code: '41000',
+	account_type_id: 4,
   name: 'Cost of Goods Sold',
   created_at: DateTime.now,
   updated_at: DateTime.now)
 
 Account.create(
   code: '42000',
+	account_type_id: 4,
   name: 'Operating Expenses',
   created_at: DateTime.now,
   updated_at: DateTime.now)
 
 Account.create(
   code: '42100',
+	account_type_id: 4,
   name: 'Selling Expenses',
   created_at: DateTime.now,
   updated_at: DateTime.now)
 
 Account.create(
   code: '42200',
+	account_type_id: 4,
   name: 'Administrative Expenses',
   created_at: DateTime.now,
   updated_at: DateTime.now)
 
 Account.create(
   code: '43000',
+	account_type_id: 4,
   name: 'Non-Operating Expenses',
   created_at: DateTime.now,
   updated_at: DateTime.now)
@@ -288,18 +340,21 @@ Account.create(
 
 Account.create(
   code: '50000',
+	account_type_id: 5,
   name: 'Revenue',
   created_at: DateTime.now,
   updated_at: DateTime.now)
 
 Account.create(
   code: '51000',
+	account_type_id: 5,
   name: 'Sales Revenue',
   created_at: DateTime.now,
   updated_at: DateTime.now)
 
 Account.create(
   code: '52000',
+	account_type_id: 5,
   name: 'Non-Operating Revenues',
   created_at: DateTime.now,
   updated_at: DateTime.now)

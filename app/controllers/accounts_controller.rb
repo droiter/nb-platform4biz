@@ -1,15 +1,17 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
+	before_action :get_account_type
 
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.all
+    @accounts = @account_type.accounts
   end
 
   # GET /accounts/1
   # GET /accounts/1.json
   def show
+		@account = @account_type.accounts.find(params[:id])
   end
 
   # GET /accounts/new
@@ -71,4 +73,8 @@ class AccountsController < ApplicationController
     def account_params
       params.require(:account).permit(:name, :type, :created_at, :updated_at)
     end
+
+		def get_account_type
+			@account_type = AccountType.find(params[:account_type_id])
+		end
 end

@@ -21,12 +21,17 @@
 
 		<tr>
 			<td>Type</td>
-			<td><%= f.number_field :statement_type_id %></td>
+			<td><%= f.select(:statement_type_id, @statement_types.map{|t|[t.name, t.id]}) %></td>
+		</tr>
+
+		<tr>
+			<td>Name</td>
+			<td><%= f.text_field(:name) %></td>
 		</tr>
 
 		<tr>
 			<td>Calendar</td>
-			<td><%= f.number_field :calendar_id %></td>
+			<td><%= f.select(:calendar_id, @calendars.map{|t|[t.calendar_type, t.id]}) %></td>
 		</tr>
 
 		<tr>
